@@ -1,7 +1,11 @@
 <template>
-  <div class="slidecontainer">
-    <input type="range" v-bind="range" class="slider" id="myRange">
-</div>
+  <select id="interval" v-model="numberIntervals">
+    <option style="color: darkgrey" value="" selected disabled>
+      Would you like to have interval bells?
+    </option>
+    <option ><!-- vai pegar o número do tempo e colocar opções. legal deinir um mínimo -->
+    </option>
+  </select>
 </template>
 
 <script>
@@ -9,34 +13,16 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
-    range: {}
+    numberIntervals: Number,
   },
-}); 
 
+});
 </script> 
 
 <style scoped>
 
-.slider {
-  -webkit-appearance: none;
-  width: 80%;
-  height: 15px;
-  margin: 1rem;
-  border-radius: 1rem;  
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
- 
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #4CAF50;
-  cursor: pointer;
+#interval {
+  margin-bottom: 2rem;
+  padding: 0.8rem;
 }
 </style>

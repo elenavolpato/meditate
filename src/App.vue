@@ -1,8 +1,8 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <Header msg="elenavolpato.me" />
-  <Sound msg="fuck bolsonaro" :bells="bells"/>
-  <Time />
+  <Header msg="Meditate now or never" />
+  <Sound :bells="bells"/>
+  <Time :range="range" />
+  <Interval :numberIntervals="numberIntervals" />
   <Footer msg="by elenavolpato.me" :icons="icons" />
 </template>
 
@@ -11,6 +11,7 @@ import Header from './components/Header.vue'
 import Sound from './components/Sound.vue'
 import Time from './components/Time.vue'
 import Footer from './components/Footer.vue'
+import Interval from './components/Interval.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent ({
@@ -18,6 +19,7 @@ export default defineComponent ({
     Header,
     Sound,
     Time,
+    Interval,
     Footer,
   },
   
@@ -41,5 +43,6 @@ export default defineComponent ({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
+  
 }
 </style>

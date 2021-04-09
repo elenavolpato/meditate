@@ -1,21 +1,30 @@
 <template>
   <div class="slidecontainer">
-    <input type="range" v-bind="range" class="slider" id="myRange">
+    <label for="time"> How long would you like to meditate?</label>
+    <input type="range" v-bind="range" min="3" max="60" class="slider" id="time">
 </div>
 </template>
 
+
+
 <script>
+/* falta label no tempo */
+
 import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
     range: {}
   },
-}); 
+  }); 
 
 </script> 
 
 <style scoped>
+
+.slidecontainer {
+  padding: 2rem;
+}
 
 .slider {
   -webkit-appearance: none;

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <header>
     <h1> {{ msg }} </h1>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -17,5 +17,12 @@ export default defineComponent ({
 </script>
 
 <style scoped>
+
+header { 
+  background-color: purple;
+  color: white;
+  padding: 1rem
+}
+
 
 </style>

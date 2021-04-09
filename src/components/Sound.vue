@@ -1,20 +1,28 @@
 <template>
-   <h3>{{ msg }}</h3>
+  <h3>{{ msg }}</h3>
   <div class="bellButtons">
     <p>Select a bell sound</p>
-    <button class="bells"      
-      v-for="(bell, id) in bells" 
-      :key="id" 
-      v-on:click="play(id)"> 
-      {{ bell.name }} 
-    </button>
-  </div>  
-
+    <div 
+      v-for="(bell, id) in bells"
+      :key="id"> 
+      <audio :id="`bell-${id}`">
+        <source :src="`/bells/bell-${id}.wav`" type="audio/wav" />
+        Your browser does not support the audio element.
+      </audio>
+      <button
+        type="button"
+        class="bells"
+        @click="playBell(id)">
+        {{ bell.name }}
+      </button>  
+    </div>
+      
+    
+  </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-
 
 export default defineComponent({
   props: {
@@ -22,8 +30,10 @@ export default defineComponent({
     bells: Array,
   },
   methods: {
-    play(sound) {
-      console.log(this.bells[sound].name);
+    playBell(sound) {
+      var playing = document.getElementById(`bell-${sound}`);
+      playing.play();
+      console.log(this.bells[sound]);
     },
   },
 });

@@ -2,6 +2,7 @@
   <footer class="themefooter">
     <div class="themefooter">
      <div id="icons" v-for="(icon, index) in icons" :key="index"> {{ icon }}  </div>
+     <div> </div>
      <div> {{ msg }} </div>
      
     </div>
