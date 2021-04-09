@@ -8,22 +8,15 @@
       v-on:click="play(id)"> 
       {{ bell.name }} 
     </button>
-  </div>
-    <VueSlideBar v-model="value"/>
-  <div>
- 
   </div>  
 
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import VueSlideBar from vue-slide-bar
+
 
 export default defineComponent({
-  components: {
-    VueSlideBar
-  },
   props: {
     msg: String,
     bells: Array,
