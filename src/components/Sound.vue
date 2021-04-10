@@ -26,15 +26,22 @@ export default defineComponent({
     msg: String,
     bells: Array,
   },
+  data () {
+    return {
+      selectedBell: null,
+    }
+  },
+
   methods: {
     playBell(sound) {
-      var selectedBell = document.getElementById(`bell-${sound}`);
-      selectedBell.play();
-      
-      
-      //quando clicar no outro o primeiro para
-    },
-   
+      if (this.selectedBell !== null) {
+        this.selectedBell.pause();
+      }
+      this.selectedBell = document.getElementById(`bell-${sound}`);
+      this.selectedBell.play(); 
+      console.log(this.selectedBell);
+     
+    }
   },
 });
 </script> 
