@@ -2,7 +2,7 @@
   <Header msg="Meditate now or never" />
   <Sound :bells="bells"/>
   <Time :range="range" />
-  <Interval :numberIntervals="numberIntervals" />
+  <Interval :numberOfBells="numberOfBells" />
   <Footer msg="by elenavolpato.me" :icons="icons" />
 </template>
 
@@ -31,6 +31,8 @@ export default defineComponent ({
         { name: "Middle bell", id: 1 }, 
         { name: "Low Bell", id: 2 }
       ],
+      numberOfBells: [ 0, 1, 2, 3, 4, 5],
+
     }
   },
   

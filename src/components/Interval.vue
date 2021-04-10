@@ -1,11 +1,14 @@
 <template>
-  <select id="interval" v-model="numberIntervals">
-    <option style="color: darkgrey" value="" selected disabled>
-      Would you like to have interval bells?
-    </option>
-    <option ><!-- vai pegar o número do tempo e colocar opções. legal definir um mínimo -->
-    </option>
-  </select>
+  <div id="interval">
+    <p>Would you like to have interval bells?</p>
+    <select>
+      <option 
+      v-for="(numberOfBell, index) in numberOfBells" 
+      :key="index"> 
+      {{ numberOfBell }} 
+      </option>            
+    </select>
+  </div>  
 </template>
 
 <script>
@@ -13,8 +16,14 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
-    numberIntervals: Number,
+    numberOfBells: Array    
   },
+
+  data () {
+    return {
+      selectedInterval: null
+    }
+  }
 });
 </script> 
 
@@ -23,5 +32,6 @@ export default defineComponent({
 #interval {
   margin-bottom: 2rem;
   padding: 0.8rem;
+  font-size: 1.3rem;
 }
 </style>
