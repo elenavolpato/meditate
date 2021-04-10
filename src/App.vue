@@ -43,6 +43,10 @@ export default defineComponent ({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  
+  border: solid 1px darkgray;
+  max-width: 500px;
+  margin: 0 auto;
 }
+
+
 </style>

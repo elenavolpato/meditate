@@ -3,7 +3,7 @@
     <option style="color: darkgrey" value="" selected disabled>
       Would you like to have interval bells?
     </option>
-    <option ><!-- vai pegar o número do tempo e colocar opções. legal deinir um mínimo -->
+    <option ><!-- vai pegar o número do tempo e colocar opções. legal definir um mínimo -->
     </option>
   </select>
 </template>
@@ -15,7 +15,6 @@ export default defineComponent({
   props: {
     numberIntervals: Number,
   },
-
 });
 </script> 
 

@@ -6,18 +6,15 @@
       v-for="(bell, id) in bells"
       :key="id"> 
       <audio :id="`bell-${id}`">
-        <source :src="`/bells/bell-${id}.wav`" type="audio/wav" />
+        <source :src="`/bell-${id}.wav`" type="audio/wav" />
         Your browser does not support the audio element.
       </audio>
       <button
         type="button"
-        class="bells"
         @click="playBell(id)">
         {{ bell.name }}
       </button>  
-    </div>
-      
-    
+    </div>   
   </div>
 </template>
 
@@ -31,13 +28,39 @@ export default defineComponent({
   },
   methods: {
     playBell(sound) {
-      var playing = document.getElementById(`bell-${sound}`);
-      playing.play();
-      console.log(this.bells[sound]);
+      var selectedBell = document.getElementById(`bell-${sound}`);
+      selectedBell.play();
+      
+      
+      //quando clicar no outro o primeiro para
     },
+   
   },
 });
 </script> 
 
 <style scoped>
+
+.bellButtons {
+  margin: 0 auto;
+  font-size: 1.3rem;
+  
+}
+
+button {
+  margin: 0.25rem auto;
+  width: 15rem;
+  border: none;
+  background-color: plum;
+  color: rgb(88, 2, 88);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  
+}
+button:is(:focus) {
+  background-color: purple;
+  color: rgb(255, 187, 255);
+}
+
 </style>
