@@ -1,8 +1,16 @@
 <template>
   <div class="slidecontainer">
-    <label for="time"> How long would you like to meditate?</label>
-    <input type="range" v-bind="range" min="3" max="60" class="slider" id="time">
-</div>
+    <label for="time">How long would you like to meditate?</label>
+    <p id="selectedMinutes">{{ minutes }} minutes</p>
+    <input
+      type="range"
+      v-model="minutes"
+      min="3"
+      max="60"
+      class="slider"
+      id="time"
+    /> 
+  </div>
 </template>
 
 
@@ -10,42 +18,63 @@
 <script>
 /* falta label no tempo */
 
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
 export default defineComponent({
   props: {
-    range: {}
+    
   },
-  }); 
+  data() {
+    return {
+      minutes: 32,
+      slider: '',    
+    }
+  },
+  methods: {
+    minutesSelected(){
+      this.slider = document.getElementById("time");
+      
+    }
+  }  
+}); 
 
 </script> 
 
 <style scoped>
-
 .slidecontainer {
-  padding: 2rem;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+}
+#selectedMinutes {
+  color: purple;
+  width: 13rem;
+  margin: 0.5rem auto;
+  padding: 0;
+  font-size: 1rem;
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 80%;
   height: 15px;
-  margin: 1rem;
-  border-radius: 1rem;  
-  background: #d3d3d3;
+  border-radius: 1rem;
+  background: rgb(255, 218, 255);
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.slider:hover {
+  opacity: 1;
+  background: rgb(255, 194, 255);
 }
 
-.slider::-webkit-slider-thumb {
- 
-  appearance: none;
+.slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  border-radius: 50%; 
-  background: #4CAF50;
+  border-radius: 50%;
+  background: purple;
   cursor: pointer;
 }
+
+
 </style>

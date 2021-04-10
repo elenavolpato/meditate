@@ -31,7 +31,6 @@ export default defineComponent({
       selectedBell: null,
     }
   },
-
   methods: {
     playBell(sound) {
       if (this.selectedBell !== null) {
@@ -44,6 +43,8 @@ export default defineComponent({
     }
   },
 });
+
+//ver como salvar estado do selectedbell. ou vueX ou evento aqui e um listener no app.vue
 </script> 
 
 <style scoped>
@@ -51,7 +52,6 @@ export default defineComponent({
 .bellButtons {
   margin: 0 auto;
   font-size: 1.3rem;
-  
 }
 
 button {
