@@ -10,7 +10,9 @@
     "sass": "^1.32.8",
     "vue": "^3.0.5",
     "vue-feather-icons": "^5.1.0",
-    "vue-slide-bar": "^1.2.0"
+    "vue-router": "^4.0.6",
+    "vue-slide-bar": "^1.2.0",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",

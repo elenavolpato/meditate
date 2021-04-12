@@ -1,14 +1,13 @@
 <template>
   <div id="interval">
-    <p>Would you like to have interval bells?</p>
-    <select>
-      <option 
-      v-for="(numberOfBell, index) in numberOfBells" 
-      :key="index"> 
-      {{ numberOfBell }} 
-      </option>            
+    <input type="checkbox" v-model="checked" name="check-button" />
+    Interval bells?
+    <select v-bind:disabled="checked === false">
+      <option v-for="(numberOfBell, index) in numberOfBells" :key="index">
+        {{ numberOfBell }}
+      </option>
     </select>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -16,19 +15,18 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
-    numberOfBells: Array    
+    numberOfBells: Array,
   },
 
-  data () {
+  data() {
     return {
-      selectedInterval: null
-    }
-  }
+      checked: true,
+    };
+  },
 });
 </script> 
 
 <style scoped>
-
 #interval {
   margin-bottom: 2rem;
   padding: 0.8rem;
