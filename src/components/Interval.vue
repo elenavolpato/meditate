@@ -2,10 +2,15 @@
   <div id="interval">
     <input type="checkbox" v-model="checked" name="check-button" />
     Interval bells?
-    <select v-bind:disabled="checked === false">
-      <option v-for="(numberOfBell, index) in numberOfBells" :key="index">
-        {{ numberOfBell }}
-      </option>
+    <select 
+      @change="updateIntervals"
+      v-model="selectedNumberofBells" 
+      :disabled="checked === false">
+        <option :value="numberOfBell" 
+          v-for="(numberOfBell, index) in numberOfBells" 
+          :key="index">
+          {{ numberOfBell }}
+        </option>
     </select>
   </div>
 </template>
@@ -18,11 +23,20 @@ export default defineComponent({
     numberOfBells: Array,
   },
 
+  emits: ['selectedInterval'],
+
   data() {
     return {
       checked: true,
+      selectedNumberofBells: 0,
     };
   },
+
+  methods: {
+    updateIntervals() {
+      this.$emit('selectedInterval', this.selectedNumberofBells);
+    }
+  }
 });
 </script> 
 

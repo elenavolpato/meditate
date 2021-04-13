@@ -1,8 +1,9 @@
 <template>
   <Header msg="Meditate now or never" />
   <Sound @bellSelected="updateBell" :bells="bells" />
-  <Time @minutesSelected="updateMinutes" :range="range" />
-  <Interval :numberOfBells="numberOfBells" />
+  <Time @minutesSelected="updateMinutes" />
+  <Interval @selectedInterval="updateIntervals" :numberOfBells="numberOfBells" />
+
   <div class="meditate">
     <p id="features"> 
       Meditate with 
@@ -60,6 +61,11 @@ export default defineComponent({
     },
     updateMinutes(event) {
       this.minutes = event;
+    },
+    updateIntervals(event) {
+      console.log('eee')
+      this.selectedInterval = event;
+      //console.log(event);
     }
   },
 });
