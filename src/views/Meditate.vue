@@ -1,5 +1,12 @@
 <template>
- 
+
+    <!-- 1 bell at the beginnning and 3 at the end-->
+
+<!-- countdown timer -->
+<p> teste </p>
+<!-- divide the total time subtracting one interval from the end and play bell -->
+<!-- <canvas width="2" height="2"></canvas> -->
+
 </template>
 
 <script>
@@ -7,14 +14,76 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    
+    name: "meditate",
+    props: [ "time", "bell", "interval" ],
+    data() {
+        return{
+            
+        }
+    },
+    methods: {
+
+    }
 });
+
+
+//background colors animation - transform to vue
+/* var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
+
+function Pixel(x, y) {
+  this.x = x;
+  this.y = y;
+  this.hue = Math.floor( Math.random() * 360 );
+  var direction = Math.random() > 0.5 ? -1 : 1;
+  this.velocity = ( Math.random() * 30 + 20 ) * 0.01 * direction;
+}
+
+Pixel.prototype.update = function() {
+  this.hue += this.velocity;
+};
+
+Pixel.prototype.render = function( ctx ) {
+  var hue = Math.round( this.hue );
+  ctx.fillStyle = 'hsl(' + hue + ', 100%, 50% )';
+  ctx.fillRect( this.x, this.y, 1, 1 );
+}
+
+var pixels = [
+  new Pixel( 0, 0 ),
+  new Pixel( 1, 0 ),
+  new Pixel( 0, 1 ),
+  new Pixel( 1, 1 ),
+];
+
+function animate() {
+  pixels.forEach( function( pixel ) {
+    pixel.update();
+    pixel.render( ctx );
+  });
+  requestAnimationFrame( animate );
+}
+
+animate(); */
 
 </script>
 
-<style>
-/* body {
-    background: radial-gradient(ellipse at top, #e66465, transparent),
-            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+<style scoped>
+
+/* html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scale(2);
 } */
 </style>

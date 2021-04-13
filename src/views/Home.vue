@@ -11,8 +11,8 @@
       {{ minutes }} minutes with 
       {{ selectedInterval }} intervals. 
     </p>
-    <button type="submit" @onclick="goToMeditation()">
-      Go to your meditation
+    <button @click="goToMeditation()">
+      Start 
     </button>
   </div>
 
@@ -53,7 +53,14 @@ export default defineComponent({
 
   methods: {
     goToMeditation() {
-      
+      this.$router.push({
+        name: "meditate",
+        params: { 
+          time: this.minutes, 
+          bell: this.selectedBell, 
+          interval: this.selectedInterval 
+        },  
+      });
     },
     updateBell(event) {
       this.selectedBell = event;
@@ -72,7 +79,6 @@ export default defineComponent({
 </script>
 
 <style>
-
 
 button {
   margin: 0.25rem auto;

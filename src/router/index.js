@@ -10,7 +10,7 @@ const routes = [
     },
     {     
         path: "/meditate",     
-        name: "Meditate",     
+        name: "meditate",     
         component: Meditate,   
     }
 ]; 
