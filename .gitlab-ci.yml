@@ -8,6 +8,7 @@ pages:
   script:
   - yarn install  
   - yarn run build
+  - cp -r dist/assets/* public/
   
   artifacts:
     paths:
