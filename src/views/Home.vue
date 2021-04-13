@@ -1,22 +1,24 @@
 <template>
-  <Header msg="Meditate now or never" />
-  <Sound @bellSelected="updateBell" :bells="bells" />
-  <Time @minutesSelected="updateMinutes" />
-  <Interval @selectedInterval="updateIntervals" :numberOfBells="numberOfBells" />
-
-  <div class="meditate">
-    <p id="features"> 
-      Meditate with 
-      {{ bells[selectedBell].name }} for 
-      {{ minutes }} minutes with 
-      {{ selectedInterval }} intervals. 
-    </p>
-    <button @click="goToMeditation()">
-      Start 
-    </button>
+  <div id="home">
+    <Header msg="Meditate now or never" />
+    <Sound @bellSelected="updateBell" :bells="bells" />
+    <Time @minutesSelected="updateMinutes" />
+    <Interval
+      @selectedInterval="updateIntervals"
+      :numberOfBells="numberOfBells"
+    />
+    <div class="meditate">
+      <p id="features">
+        Meditate with
+        {{ bells[selectedBell].name }} for {{ minutes }} minutes with
+        {{ selectedInterval }} intervals.
+      </p>
+      <button @click="goToMeditation()">Start</button>
+    </div>
+    <Footer msg="by elenavolpato.me" :icons="icons" />
   </div>
 
-  <Footer msg="by elenavolpato.me" :icons="icons" />
+  
 </template>
 
 <script>
@@ -55,11 +57,11 @@ export default defineComponent({
     goToMeditation() {
       this.$router.push({
         name: "meditate",
-        params: { 
-          time: this.minutes, 
-          bell: this.selectedBell, 
-          interval: this.selectedInterval 
-        },  
+        params: {
+          time: this.minutes,
+          bell: this.selectedBell,
+          interval: this.selectedInterval,
+        },
       });
     },
     updateBell(event) {
@@ -70,16 +72,22 @@ export default defineComponent({
       this.minutes = event;
     },
     updateIntervals(event) {
-      console.log('eee')
+      console.log("eee");
       this.selectedInterval = event;
       //console.log(event);
-    }
+    },
   },
 });
 </script>
 
-<style>
-
+<style scoped>
+#home {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 2rem auto;
+}
 button {
   margin: 0.25rem auto;
   width: 15rem;

@@ -11,7 +11,8 @@ const routes = [
     {     
         path: "/meditate",     
         name: "meditate",     
-        component: Meditate,   
+        component: Meditate,  
+        props: true, 
     }
 ]; 
 const router = createRouter({   

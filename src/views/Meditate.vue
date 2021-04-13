@@ -1,11 +1,13 @@
 <template>
-
-    <!-- 1 bell at the beginnning and 3 at the end-->
-
+<!-- 1 bell at the beginnning and 3 at the end-->
 <!-- countdown timer -->
-<p> teste </p>
 <!-- divide the total time subtracting one interval from the end and play bell -->
+
+<div id="play-pause">
+    <img src="/src/assets/pause-icon.png" alt="pause button" /> 
+</div>
 <!-- <canvas width="2" height="2"></canvas> -->
+
 
 </template>
 
@@ -18,10 +20,29 @@ export default defineComponent({
     props: [ "time", "bell", "interval" ],
     data() {
         return{
-            
+            totalTime: this.time,
+            selectedBell: this.bell,
+            totalIntervals: this.interval,
         }
     },
+    mounted(){
+        if ( this.selectedBell === undefined || this.totalTime === undefined|| this.totalIntervals === undefined) {
+            this.totalTime = 20;
+            this.selectedBell = 2;
+            this.totalIntervals= 4;
+        };
+        console.log(this.totalTime);
+        console.log(this.selectedBell);
+        console.log(this.totalIntervals);
+        
+    },
     methods: {
+        initialBell() {
+            //play the bell at the beginning
+            //play interval bell(s)
+            //play ending bell
+            
+        }
 
     }
 });
@@ -69,6 +90,12 @@ animate(); */
 </script>
 
 <style scoped>
+
+body {
+    margin: 0 auto;
+    align-items: center;
+}
+
 
 /* html, body {
   height: 100%;
