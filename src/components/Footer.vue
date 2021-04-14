@@ -1,9 +1,6 @@
 <template>
-  <footer class="themefooter">
-    <div class="themefooter">
-     <div id="icons" v-for="(icon, index) in icons" :key="index"> {{ icon }}  </div>
-     <div> {{ msg }} </div>
-    </div>
+  <footer >
+    <div class="themefooter"> {{ msg }} </div>
   </footer>
 </template>
 
@@ -21,15 +18,12 @@ export default defineComponent ({
 
 <style scoped>
 .themefooter {
-  display: flex;
+  margin: 0 auto;
   background-color: black;
-  padding: 0.5rem;
+  padding: 1rem;
   color: whitesmoke;
-  justify-content: center;
-}
-#icons {
- 
+  text-align: center;
   
-  flex-direction: column;
 }
+
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div id="home">
     <Header msg="Meditate now or never" />
-    <Sound @bellSelected="updateBell" :bells="bells" />
     <Time @minutesSelected="updateMinutes" />
+    <Sound @bellSelected="updateBell" :bells="bells" />
     <Interval
       @selectedInterval="updateIntervals"
       :numberOfBells="numberOfBells"
@@ -12,12 +12,13 @@
         Meditate with
         {{ bells[selectedBell].name }} for {{ minutes }} minutes with
         {{ selectedInterval }} intervals.
+        <button @click="goToMeditation()">Start</button>
       </p>
-      <button @click="goToMeditation()">Start</button>
+      
     </div>
-    <Footer msg="by elenavolpato.me" :icons="icons" />
+    
   </div>
-
+<Footer msg="by elenavolpato.me" :icons="icons" />
   
 </template>
 
@@ -74,42 +75,42 @@ export default defineComponent({
     updateIntervals(event) {
       console.log("eee");
       this.selectedInterval = event;
-      //console.log(event);
+      
     },
   },
 });
 </script>
 
 <style scoped>
+
 #home {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: 2rem auto;
 }
-button {
-  margin: 0.25rem auto;
-  width: 15rem;
-  border: none;
-  background-color: plum;
+
+#features {
+  font-size: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin: 1rem auto;
+  padding: 1.5rem;
   color: rgb(88, 2, 88);
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
 }
 
-button:is(:focus) {
+button {
+  font-size: 1.5rem;
   background-color: purple;
-  color: rgb(255, 187, 255);
-}
-
-button:disabled {
-  background-color: rgb(212, 196, 212);
-  color: rgb(93, 75, 93);
+  padding: 1rem;
+  color: white;
+  border: none;
+  margin-top: 1rem;
 }
 
 .meditate {
   font-size: 1.5rem;
 }
+
+
 </style>

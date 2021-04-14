@@ -1,5 +1,4 @@
 <template>
-  <h3>{{ msg }}</h3>
   <div class="bellButtons">
     <p>Select a bell sound</p>
     <div 
@@ -9,7 +8,7 @@
         <source :src="`/bell-${id}.wav`" type="audio/wav" />
         Your browser does not support the audio element.
       </audio>
-      <button
+      <button id="bells"
         @click="playBell(id)">
         {{ bell.name }}
       </button>
@@ -35,6 +34,7 @@ export default defineComponent({
     playBell(selectedBellId) {
       if (this.selectedBellAudio !== null) {
         this.selectedBellAudio.pause();
+        this.selectedBellAudio.currentTime = 0;
       }
       this.selectedBellAudio = document.getElementById(`bell-${selectedBellId}`);
       this.selectedBellAudio.play(); 
@@ -57,19 +57,20 @@ export default defineComponent({
 <style scoped>
 
 .bellButtons {
-  margin: 0 auto;
   font-size: 1.3rem;
+  width:100%; 
+  padding: 0 1rem 1rem 1rem; 
 }
 
 button {
-  margin: 0.25rem auto;
-  width: 15rem;
   border: none;
   background-color: plum;
   color: rgb(88, 2, 88);
+  float: left;
+  margin: 0 1rem 3rem 1rem;
+  width: 125px; 
   padding: 1rem;
-  display: flex;
-  justify-content: center;
+  
 }
 
 button:is(:focus) {

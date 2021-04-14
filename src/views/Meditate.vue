@@ -93,7 +93,7 @@ animate(); */
 
 body {
     margin: 0 auto;
-    align-items: center;
+    
 }
 
 

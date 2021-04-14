@@ -44,7 +44,7 @@ export default defineComponent({
 <style scoped>
 .slidecontainer {
   font-size: 1.3rem;
-  margin: 1.5rem 0;
+    margin: 1.5rem 1rem 2rem 1rem;
 }
 #selectedMinutes {
   color: purple;

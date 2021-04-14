@@ -13,7 +13,10 @@
         </option>
     </select>
   </div>
+<!-- help box explaining what is interval bells -->
 </template>
+
+
 
 <script>
 import { defineComponent } from "vue";
@@ -42,7 +45,7 @@ export default defineComponent({
 
 <style scoped>
 #interval {
-  margin-bottom: 2rem;
+  margin: 0rem 1rem 2rem 1rem;
   padding: 0.8rem;
   font-size: 1.3rem;
 }
