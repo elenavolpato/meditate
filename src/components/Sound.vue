@@ -58,19 +58,19 @@ export default defineComponent({
 
 .bellButtons {
   font-size: 1.3rem;
-  width:100%; 
+  width: 100%; 
   padding: 0 1rem 1rem 1rem; 
 }
 
 button {
+  font-size: 1.1rem;
   border: none;
   background-color: plum;
   color: rgb(88, 2, 88);
   float: left;
-  margin: 0 1rem 3rem 1rem;
-  width: 125px; 
-  padding: 1rem;
-  
+  margin: 0 0.2rem;
+  width: 8rem;
+  padding: 0.5rem;
 }
 
 button:is(:focus) {

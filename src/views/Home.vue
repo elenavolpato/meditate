@@ -43,9 +43,9 @@ export default defineComponent({
     return {
       icons: ["🦆", "🦆", "🦆"],
       bells: [
-        { name: "Bright bell", id: 0 },
-        { name: "Middle bell", id: 1 },
-        { name: "Low Bell", id: 2 },
+        { name: "Bell 1", id: 0 },
+        { name: "Bell 2", id: 1 },
+        { name: "Bell 3", id: 2 },
       ],
       selectedBell: 0,
       numberOfBells: [0, 1, 2, 3, 4, 5],
