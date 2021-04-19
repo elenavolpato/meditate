@@ -1,8 +1,4 @@
-<!-- 1 bell at the beginnning and 3 at the end-->
-    <!-- countdown timer -->
-    <!-- divide the total time subtracting one interval from the end and play bell -->
     <!-- congig button returns do the main page -->
-    <!-- <canvas width="2" height="2"></canvas> -->
 
     <!-- change this to a circle or a timer. ref meditate typescript -->
 
@@ -25,6 +21,7 @@
       <button @click="pause">pause</button>
       <button @click="stop">stop</button>
     </div>
+    <!-- <canvas width="2" height="2"></canvas> -->
   </div>
 </template>
 
@@ -39,7 +36,8 @@ export default defineComponent({
       selectedBell: this.bell,
       sound: undefined,
 
-      totalIntervals: this.interval,
+      selectedlInterval: this.interval ,
+      intervalTime: 0,
 
       totalTime: this.time,
       startTime: undefined,
@@ -50,31 +48,27 @@ export default defineComponent({
     if (
       this.selectedBell === undefined ||
       this.totalTime === undefined ||
-      this.totalIntervals === undefined
+      this.selectedlInterval=== undefined
     ) {
-      this.totalTime = 3 * 60000;
+      this.totalTime = 0.2 * 60000;
       this.selectedBell = 2;
-      this.totalIntervals = 1;
+      this.selectedlInterval = 1;
     }
+    this.intervalTime = (this.totalTime / 60000 )/(this.selectedlInterval+1);
     console.log(this.totalTime);
     console.log(this.selectedBell);
-    console.log(this.totalIntervals);
-    console.log((this.totalTime/60000)/(this.totalIntervals +1));
+    console.log(this.intervalTime);
     this.sound = document.getElementById("meditationSound");
-    
-    
   },
 
   computed: {
     prettyTime() {
       return ((this.totalTime - this.elapsed) / 1000).toFixed(0);
     },
-    
   },
 
   methods: {
     //basic play, pause and stop functions
-
     play() {
       this.sound.play();
       window.requestAnimationFrame(this.countdown);
@@ -85,23 +79,43 @@ export default defineComponent({
     stop() {
       this.sound.pause();
       this.sound.currentTime = 0;
-      this.sound.play();
-      console.log("paraparaparou");
     },
-
+    //bell plays 3 times at the end !!! DOES NOT WORK YET !!!
+    endMeditation(timestamp) {
+      var secs = timestamp;
+      if (secs < 7) {
+        this.sound.pause();
+        this.sound.currentTime = 0;
+        this.sound.play();
+        secs = secs + 3;
+      }
+      console.log("parooou");
+    },
+    //timer
     countdown(timestamp) {
       if (this.startTime === undefined) {
         this.startTime = timestamp;
       }
       this.elapsed = timestamp - this.startTime;
       if (this.elapsed <= this.totalTime) {
-        window.requestAnimationFrame(this.countdown);
-      } else {
-        this.stop();
+        window.requestAnimationFrame(this.countdown)
+        if (this.elapsed >= this.intervalTime * 60000) {
+          this.playIntervalBell();
+          this.intervalTime++;
+          console.log("intervalos");
+        } 
+      } 
+      else {
+        this.endMeditation();
       }
     },
+    //play interval bell(s) !!! DOES NOT WORK YET !!!
+    playIntervalBell() {
+      this.sound.pause();
+      this.sound.currentTime = 0;
+      this.sound.play();
+    },
 
-    //play interval bell(s)
     //play ending bell
   },
 });
@@ -147,7 +161,7 @@ animate(); */
 </script>
 
 <style scoped>
-body {
+/* body {
   margin: 0 auto;
 }
 
@@ -167,5 +181,5 @@ canvas {
   width: 100%;
   height: 100%;
   transform: scale(2);
-}
+} */
 </style>
