@@ -1,4 +1,4 @@
-    <!-- congig button returns do the main page -->
+    <!-- config button returns do the main page -->
 
     <!-- change this to a circle or a timer. ref meditate typescript -->
 
@@ -16,7 +16,7 @@
     <div class="pt-6 space-y-4" v-show="elapsed != undefined">
       <p>{{ prettyTime }}</p>
     </div>
-    <div class="text- font-medium text-black">
+    <div class="font-medium text-black">
       <button @click="play">play</button>
       <button @click="pause">pause</button>
       <button @click="stop">stop</button>
@@ -28,6 +28,9 @@
 <script>
 import { defineComponent } from "vue";
 
+const numEndBells = 3;
+const intervalEndBells = 5000;
+
 export default defineComponent({
   name: "meditate",
   props: ["time", "bell", "interval"],
@@ -36,27 +39,31 @@ export default defineComponent({
       selectedBell: this.bell,
       sound: undefined,
 
-      selectedlInterval: this.interval ,
+      selectedlInterval: this.interval + 1,
+      currentInterval: 1,
       intervalTime: 0,
 
-      totalTime: this.time,
+      totalTime: this.time * 60000,
       startTime: undefined,
       elapsed: undefined,
+      secs: intervalEndBells,
+      GOZEI: false
     };
   },
   mounted() {
     if (
       this.selectedBell === undefined ||
       this.totalTime === undefined ||
-      this.selectedlInterval=== undefined
+      this.selectedlInterval === undefined
     ) {
       this.totalTime = 0.2 * 60000;
       this.selectedBell = 2;
-      this.selectedlInterval = 1;
+      this.selectedlInterval = 2;
     }
-    this.intervalTime = (this.totalTime / 60000 )/(this.selectedlInterval+1);
+    this.intervalTime = this.totalTime / this.selectedlInterval;
     console.log(this.totalTime);
     console.log(this.selectedBell);
+    console.log(this.selectedlInterval);
     console.log(this.intervalTime);
     this.sound = document.getElementById("meditationSound");
   },
@@ -82,14 +89,21 @@ export default defineComponent({
     },
     //bell plays 3 times at the end !!! DOES NOT WORK YET !!!
     endMeditation(timestamp) {
-      var secs = timestamp;
-      if (secs < 7) {
-        this.sound.pause();
-        this.sound.currentTime = 0;
-        this.sound.play();
-        secs = secs + 3;
+      if (this.startTime == -1) {
+        this.startTime = timestamp;
       }
-      console.log("parooou");
+      this.elapsed = timestamp - this.startTime;
+      if (this.elapsed <= numEndBells * intervalEndBells + 1) {
+        if (this.elapsed >= this.secs) {
+          
+          this.sound.pause();
+          this.sound.currentTime = 0;
+          this.sound.play();
+          this.secs = this.secs + intervalEndBells;
+        }
+        window.requestAnimationFrame(this.endMeditation);
+      } 
+
     },
     //timer
     countdown(timestamp) {
@@ -98,18 +112,19 @@ export default defineComponent({
       }
       this.elapsed = timestamp - this.startTime;
       if (this.elapsed <= this.totalTime) {
-        window.requestAnimationFrame(this.countdown)
-        if (this.elapsed >= this.intervalTime * 60000) {
+        if (this.elapsed >= this.intervalTime * this.currentInterval) {
           this.playIntervalBell();
-          this.intervalTime++;
+          this.currentInterval++;
           console.log("intervalos");
-        } 
-      } 
-      else {
-        this.endMeditation();
+        }
+        window.requestAnimationFrame(this.countdown);
+      } else {
+        console.log('END BELLS')
+        this.startTime = -1;
+        window.requestAnimationFrame(this.endMeditation);
       }
     },
-    //play interval bell(s) !!! DOES NOT WORK YET !!!
+    //play interval bell(s)
     playIntervalBell() {
       this.sound.pause();
       this.sound.currentTime = 0;
@@ -161,7 +176,7 @@ animate(); */
 </script>
 
 <style scoped>
-/* body {
+body {
   margin: 0 auto;
 }
 
@@ -181,5 +196,5 @@ canvas {
   width: 100%;
   height: 100%;
   transform: scale(2);
-} */
+} 
 </style>
