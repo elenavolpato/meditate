@@ -1,14 +1,18 @@
 <template>
-<div class=" absolute inset-0 m-0 bg-cover font-sans bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" id="app">
-  <router-view />
+<div class="flex">
+  <div 
+    class="absolute inset-0 min-h-full font-sans bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" 
+    id="app">
+    <router-view />
+  </div>
 </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'App',
-})
+  name: "App",
+});
 </script>
 

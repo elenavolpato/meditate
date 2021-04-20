@@ -1,18 +1,27 @@
 <template>
-  <div class="bellButtons">
+  <div
+    class="text-xl lowercase leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
+  >
     <p>Select a bell sound</p>
-    <div 
+    <div
+      class=" grid grid-rows-3 text-sm font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white p-2 mt-2"
       v-for="(bell, id) in bells"
-      :key="id"> 
-      <audio :id="`bell-${id}`">
-        <source :src="`/bell-${id}.wav`" type="audio/wav" />
-        Your browser does not support the audio element.
-      </audio>
-      <button id="bells"
-        @click="playBell(id)">
-        {{ bell.name }}
-      </button>
-    </div>   
+      :key="id"
+    >
+      <div>
+        <audio :id="`bell-${id}`">
+          <source :src="`/bell-${id}.wav`" type="audio/wav" />
+          Your browser does not support the audio element.
+        </audio>
+        <button
+          class=""
+          id="bells"
+          @click="playBell(id)"
+        >
+          {{ bell.name }}
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,11 +33,11 @@ export default defineComponent({
     msg: String,
     bells: Array,
   },
-  emits: ['bellSelected'],
-  data () {
+  emits: ["bellSelected"],
+  data() {
     return {
       selectedBellAudio: null,
-    }
+    };
   },
   methods: {
     playBell(selectedBellId) {
@@ -36,21 +45,19 @@ export default defineComponent({
         this.selectedBellAudio.pause();
         this.selectedBellAudio.currentTime = 0;
       }
-      this.selectedBellAudio = document.getElementById(`bell-${selectedBellId}`);
-      this.selectedBellAudio.play(); 
-      this.$emit('bellSelected', selectedBellId);
+      this.selectedBellAudio = document.getElementById(
+        `bell-${selectedBellId}`
+      );
+      this.selectedBellAudio.play();
+      this.$emit("bellSelected", selectedBellId);
     },
     selectedButton(x) {
       x = this.selectedBellAudio;
       if (x !== null) {
         return x;
       }
-        
-      }
-    }
-  
+    },
+  },
 });
-
-
 </script> 
 

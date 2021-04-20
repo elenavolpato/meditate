@@ -1,17 +1,24 @@
 <template>
-  <div
-    class="p-2 m-auto  bg-white shadow-md overflow-hidden md:max-w-2xl"
-    id="home"
-  >
-    <div class="flex">
-      <div class="md:flex-shrink-0">
-        <Header msg="Meditate now or never" />
+  
+  <div class="min-h-full md:min-h-screen">
+    <div
+      class="grid grid-cols-1 divide-y divide-rose-500 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white shadow-md max-w-md overflow-hidden"
+      id="home"
+    >
+      <div>
+        <Header msg="meditation timer" />
+      </div>
+      <div class="grid grid-cols-1 divide-y divide-rose-500flex-shrink-0">
         <Time @minutesSelected="updateMinutes" />
-        <Sound @bellSelected="updateBell" :bells="bells" />
-        <Interval
-          @selectedInterval="updateIntervals"
-          :numberOfBells="numberOfBells"
-        />
+        <div>
+          <Sound @bellSelected="updateBell" :bells="bells" />
+        </div>
+        <div>
+          <Interval
+            @selectedInterval="updateIntervals"
+            :numberOfBells="numberOfBells"
+          />
+        </div>
         <div class="meditate">
           <p id="features">
             Meditate with
@@ -23,6 +30,7 @@
       </div>
     </div>
   </div>
+
   <Footer msg="by elenavolpato.me" />
 </template>
 

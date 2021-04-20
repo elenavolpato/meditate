@@ -1,5 +1,5 @@
 <template>
-  <header class="text-center sm:text-center lowercase text-2xl text-white font-semibold bg-pink-900">
+  <header class="text-center sm:text-center lowercase text-3xl font-bold pt-2 p-2 text-pink-500">
     <h1> {{ msg }} </h1>
   </header>
 </template>
