@@ -9,7 +9,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      fontFamily: ['hover', 'focus']
+      fontFamily: ['hover', 'focus'],
+      fontSmoothing: ['hover', 'focus'],
+
     },
   },
   plugins: [],

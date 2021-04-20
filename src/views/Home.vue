@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl"
+    class="p-2 m-auto  bg-white shadow-md overflow-hidden md:max-w-2xl"
     id="home"
   >
     <div class="flex">
@@ -84,33 +84,3 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-#home {
-  text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  margin: 2rem auto;
-}
-
-#features {
-  font-size: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 50%;
-  margin: 1rem auto;
-  padding: 1.5rem;
-  color: rgb(88, 2, 88);
-}
-
-button {
-  font-size: 1.5rem;
-  background-color: purple;
-  padding: 1rem;
-  color: white;
-  border: none;
-  margin-top: 1rem;
-}
-
-.meditate {
-  font-size: 1.5rem;
-}
-</style>

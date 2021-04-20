@@ -43,10 +43,3 @@ export default defineComponent({
 });
 </script> 
 
-<style scoped>
-#interval {
-  margin: 0rem 1rem 2rem 1rem;
-  padding: 0.8rem;
-  font-size: 1.3rem;
-}
-</style>

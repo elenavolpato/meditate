@@ -1,5 +1,5 @@
 <template>
-  <header class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+  <header class="text-center sm:text-center lowercase text-2xl text-white font-semibold bg-pink-900">
     <h1> {{ msg }} </h1>
   </header>
 </template>
@@ -12,18 +12,6 @@ export default defineComponent ({
     msg: String
   }
 })
-
-
 </script>
 
-<style scoped>
-
-header { 
-  background-color: purple;
-  color: white;
-  padding: 1rem
-}
-
-
-</style>
 

@@ -51,37 +51,6 @@ export default defineComponent({
   
 });
 
-//ver como salvar estado do selectedbell. ou vueX ou evento aqui e um listener no app.vue
+
 </script> 
 
-<style scoped>
-
-.bellButtons {
-  font-size: 1.3rem;
-  width: 100%; 
-  padding: 0 1rem 1rem 1rem; 
-}
-
-button {
-  font-size: 1.1rem;
-  border: none;
-  background-color: plum;
-  color: rgb(88, 2, 88);
-  float: left;
-  margin: 0 0.2rem;
-  width: 8rem;
-  padding: 0.5rem;
-}
-
-button:is(:focus) {
-  background-color: purple;
-  color: rgb(255, 187, 255);
-}
-
-button:disabled {
-  background-color: rgb(212, 196, 212);
-  color: rgb(93, 75, 93);
-}
-
-
-</style>

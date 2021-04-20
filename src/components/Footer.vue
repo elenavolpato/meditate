@@ -16,14 +16,3 @@ export default defineComponent ({
 
 </script>
 
-<style scoped>
-.themefooter {
-  margin: 0 auto;
-  background-color: black;
-  padding: 1rem;
-  color: whitesmoke;
-  text-align: center;
-  
-}
-
-</style>
