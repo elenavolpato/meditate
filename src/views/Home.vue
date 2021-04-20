@@ -1,25 +1,29 @@
 <template>
-  <div id="home">
-    <Header msg="Meditate now or never" />
-    <Time @minutesSelected="updateMinutes" />
-    <Sound @bellSelected="updateBell" :bells="bells" />
-    <Interval
-      @selectedInterval="updateIntervals"
-      :numberOfBells="numberOfBells"
-    />
-    <div class="meditate">
-      <p id="features">
-        Meditate with
-        {{ bells[selectedBell].name }} for {{ minutes }} minutes with
-        {{ selectedInterval }} intervals.
-        <button @click="goToMeditation()">Start</button>
-      </p>
-      
+  <div
+    class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl"
+    id="home"
+  >
+    <div class="flex">
+      <div class="md:flex-shrink-0">
+        <Header msg="Meditate now or never" />
+        <Time @minutesSelected="updateMinutes" />
+        <Sound @bellSelected="updateBell" :bells="bells" />
+        <Interval
+          @selectedInterval="updateIntervals"
+          :numberOfBells="numberOfBells"
+        />
+        <div class="meditate">
+          <p id="features">
+            Meditate with
+            {{ bells[selectedBell].name }} for {{ minutes }} minutes with
+            {{ selectedInterval }} intervals.
+            <button @click="goToMeditation()">Start</button>
+          </p>
+        </div>
+      </div>
     </div>
-    
   </div>
-<Footer msg="by elenavolpato.me" :icons="icons" />
-  
+  <Footer msg="by elenavolpato.me" />
 </template>
 
 <script>
@@ -75,14 +79,12 @@ export default defineComponent({
     updateIntervals(event) {
       console.log("eee");
       this.selectedInterval = event;
-      
     },
   },
 });
 </script>
 
 <style scoped>
-
 #home {
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -111,6 +113,4 @@ button {
 .meditate {
   font-size: 1.5rem;
 }
-
-
 </style>

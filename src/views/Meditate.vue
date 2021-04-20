@@ -19,7 +19,6 @@
     <div class="font-medium text-black">
       <button @click="play">play</button>
       <button @click="pause">pause</button>
-      <button @click="stop">stop</button>
     </div>
     <!-- <canvas width="2" height="2"></canvas> -->
   </div>
@@ -29,25 +28,35 @@
 import { defineComponent } from "vue";
 
 const numEndBells = 3;
-const intervalEndBells = 5000;
+const intervalEndBells = 3500;
 
+/* //configurations to background color animation
+var canvas = document.querySelector("canvas");
+var ctx = canvas.getContext("2d");
+var pixels = [
+  new Pixel(0, 0),
+  new Pixel(1, 0),
+  new Pixel(0, 1),
+  new Pixel(1, 1),
+];
+ */
 export default defineComponent({
   name: "meditate",
   props: ["time", "bell", "interval"],
   data() {
     return {
+      //sound data
       selectedBell: this.bell,
       sound: undefined,
-
+      //interval data
       selectedlInterval: this.interval + 1,
       currentInterval: 1,
       intervalTime: 0,
-
+      //timer data
       totalTime: this.time * 60000,
       startTime: undefined,
       elapsed: undefined,
       secs: intervalEndBells,
-      GOZEI: false
     };
   },
   mounted() {
@@ -75,7 +84,7 @@ export default defineComponent({
   },
 
   methods: {
-    //basic play, pause and stop functions
+    //basic play and pause functions
     play() {
       this.sound.play();
       window.requestAnimationFrame(this.countdown);
@@ -83,29 +92,8 @@ export default defineComponent({
     pause() {
       this.sound.pause();
     },
-    stop() {
-      this.sound.pause();
-      this.sound.currentTime = 0;
-    },
-    //bell plays 3 times at the end !!! DOES NOT WORK YET !!!
-    endMeditation(timestamp) {
-      if (this.startTime == -1) {
-        this.startTime = timestamp;
-      }
-      this.elapsed = timestamp - this.startTime;
-      if (this.elapsed <= numEndBells * intervalEndBells + 1) {
-        if (this.elapsed >= this.secs) {
-          
-          this.sound.pause();
-          this.sound.currentTime = 0;
-          this.sound.play();
-          this.secs = this.secs + intervalEndBells;
-        }
-        window.requestAnimationFrame(this.endMeditation);
-      } 
 
-    },
-    //timer
+    //timer setup
     countdown(timestamp) {
       if (this.startTime === undefined) {
         this.startTime = timestamp;
@@ -115,64 +103,76 @@ export default defineComponent({
         if (this.elapsed >= this.intervalTime * this.currentInterval) {
           this.playIntervalBell();
           this.currentInterval++;
-          console.log("intervalos");
+          console.log("INTERVALOS");
         }
         window.requestAnimationFrame(this.countdown);
       } else {
-        console.log('END BELLS')
+        console.log("END BELLS");
         this.startTime = -1;
         window.requestAnimationFrame(this.endMeditation);
       }
     },
-    //play interval bell(s)
+    //plays bells in between
     playIntervalBell() {
       this.sound.pause();
       this.sound.currentTime = 0;
       this.sound.play();
     },
-
-    //play ending bell
+    //bell plays 2 times at the end
+    endMeditation(timestamp) {
+      if (this.startTime == -1) {
+        this.startTime = timestamp;
+      }
+      this.elapsed = timestamp - this.startTime;
+      if (this.elapsed <= numEndBells * intervalEndBells + 1) {
+        if (this.elapsed >= this.secs) {
+          this.sound.pause();
+          this.sound.currentTime = 0;
+          this.sound.play();
+          this.secs = this.secs + intervalEndBells;
+        }
+        window.requestAnimationFrame(this.endMeditation);
+      }
+    },
   },
 });
 
-//background colors animation - transform to vue
-/* var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
+/*//background colors animation - transform to vue
 
 function Pixel(x, y) {
   this.x = x;
   this.y = y;
-  this.hue = Math.floor( Math.random() * 360 );
+  this.hue = Math.floor(Math.random() * 360);
   var direction = Math.random() > 0.5 ? -1 : 1;
-  this.velocity = ( Math.random() * 30 + 20 ) * 0.01 * direction;
+  this.velocity = (Math.random() * 30 + 20) * 0.01 * direction;
 }
 
-Pixel.prototype.update = function() {
+Pixel.prototype.update = function () {
   this.hue += this.velocity;
 };
 
-Pixel.prototype.render = function( ctx ) {
-  var hue = Math.round( this.hue );
-  ctx.fillStyle = 'hsl(' + hue + ', 100%, 50% )';
-  ctx.fillRect( this.x, this.y, 1, 1 );
-}
+Pixel.prototype.render = function (ctx) {
+  var hue = Math.round(this.hue);
+  ctx.fillStyle = "hsl(" + hue + ", 100%, 50% )";
+  ctx.fillRect(this.x, this.y, 1, 1);
+};
 
 var pixels = [
-  new Pixel( 0, 0 ),
-  new Pixel( 1, 0 ),
-  new Pixel( 0, 1 ),
-  new Pixel( 1, 1 ),
+  new Pixel(0, 0),
+  new Pixel(1, 0),
+  new Pixel(0, 1),
+  new Pixel(1, 1),
 ];
 
 function animate() {
-  pixels.forEach( function( pixel ) {
+  pixels.forEach(function (pixel) {
     pixel.update();
-    pixel.render( ctx );
+    pixel.render(ctx);
   });
-  requestAnimationFrame( animate );
+  requestAnimationFrame(animate);
 }
 
-animate(); */
+animate();*/
 </script>
 
 <style scoped>
@@ -196,5 +196,5 @@ canvas {
   width: 100%;
   height: 100%;
   transform: scale(2);
-} 
+}
 </style>
