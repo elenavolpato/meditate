@@ -2,10 +2,15 @@ module.exports = {
   purge: false,
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontFamily: {
+      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+     },
+    extend: {},  
   },
   variants: {
-    extend: {},
+    extend: {
+      fontFamily: ['hover', 'focus']
+    },
   },
   plugins: [],
 }

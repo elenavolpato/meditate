@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
     <h1> {{ msg }} </h1>
   </header>
 </template>

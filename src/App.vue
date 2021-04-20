@@ -1,5 +1,5 @@
 <template>
-<div id="app">
+<div  class="font-sans" id="app">
   <router-view />
 </div>
 </template>
@@ -14,9 +14,7 @@ export default defineComponent({
 
 <style scoped>
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif
-}
+
 
 
 </style>
