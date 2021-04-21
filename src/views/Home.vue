@@ -2,13 +2,13 @@
   
   <div class="min-h-full md:min-h-screen">
     <div
-      class="grid grid-cols-1 divide-y divide-rose-500 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white shadow-md max-w-md overflow-hidden"
+      class="grid grid-cols-1 divide-dashed divide-y-2 divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
     >
       <div>
         <Header msg="meditation timer" />
       </div>
-      <div class="grid grid-cols-1 divide-y divide-rose-500flex-shrink-0">
+      <div class="grid grid-cols-1 divide-dashed divide-y divide-pink-300 flex-shrink-0">
         <Time @minutesSelected="updateMinutes" />
         <div>
           <Sound @bellSelected="updateBell" :bells="bells" />
@@ -55,9 +55,9 @@ export default defineComponent({
     return {
       icons: ["🦆", "🦆", "🦆"],
       bells: [
-        { name: "Bell 1", id: 0 },
-        { name: "Bell 2", id: 1 },
-        { name: "Bell 3", id: 2 },
+        { name: "bright sound", id: 0 },
+        { name: "deep sound", id: 1 },
+        { name: "solemn sound", id: 2 },
       ],
       selectedBell: 0,
       numberOfBells: [0, 1, 2, 3, 4, 5],

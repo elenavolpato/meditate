@@ -3,23 +3,21 @@
     class="text-xl lowercase leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
   >
     <p>Select a bell sound</p>
-    <div
-      class=" grid grid-rows-3 text-sm font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white p-2 mt-2"
-      v-for="(bell, id) in bells"
-      :key="id"
-    >
-      <div>
-        <audio :id="`bell-${id}`">
-          <source :src="`/bell-${id}.wav`" type="audio/wav" />
-          Your browser does not support the audio element.
-        </audio>
-        <button
-          class=""
-          id="bells"
-          @click="playBell(id)"
-        >
-          {{ bell.name }}
-        </button>
+    <div class="grid grid-cols-3 gap-3 pt-3 pb-3">
+      <div
+        class="text-sm font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white p-2 mt-2"
+        v-for="(bell, id) in bells"
+        :key="id"
+      >
+        <div class="select-none">
+          <audio :id="`bell-${id}`">
+            <source :src="`/bell-${id}.wav`" type="audio/wav" />
+            Your browser does not support the audio element.
+          </audio>
+          <div id="bells" @click="playBell(id)">
+            {{ bell.name }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
