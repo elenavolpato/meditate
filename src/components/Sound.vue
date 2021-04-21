@@ -3,8 +3,8 @@
     class="text-xl lowercase leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
   >
     <p>Select a bell sound</p>
-    <div class="grid grid-cols-3 gap-3 pt-3 pb-3">
-      <div
+    <div class="grid grid-cols-3 md:flex-row gap-3 pt-3 pb-3">
+      <button
         class="text-sm font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white p-2 mt-2"
         v-for="(bell, id) in bells"
         :key="id"
@@ -18,7 +18,7 @@
             {{ bell.name }}
           </div>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </template>

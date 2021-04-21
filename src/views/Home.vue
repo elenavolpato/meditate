@@ -1,8 +1,8 @@
 <template>
   
-  <div class="min-h-full md:min-h-screen">
+  <div class="min-h-full">
     <div
-      class="grid grid-cols-1 divide-dashed divide-y-2 divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
+      class="grid grid-cols-1 divide-dashed divide-y divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
     >
       <div>
@@ -19,13 +19,13 @@
             :numberOfBells="numberOfBells"
           />
         </div>
-        <div class="meditate">
+        <div class="text-xl leading-7 mx-6 text-center pt-6 font-thin text-pink-500">
           <p id="features">
             Meditate with
             {{ bells[selectedBell].name }} for {{ minutes }} minutes with
             {{ selectedInterval }} intervals.
-            <button @click="goToMeditation()">Start</button>
           </p>
+          <button class="text-lg font-semibold rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white px-6 pt-3 pb-2 mt-4" @click="goToMeditation()">Start</button>
         </div>
       </div>
     </div>
@@ -91,4 +91,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+
+button :is(:active,:focus) {
+  background-image: linear-gradient(to right, rgb(96, 165, 250) , rgb(139,92,246));
+}
+</style>
 

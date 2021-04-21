@@ -24,7 +24,7 @@
     <div class="relative inline-flex">
       
       <svg
-        class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
+        class="w-2 h-2 absolute top-0 right-1 align-middle m-3 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 412 232"
       >
@@ -35,7 +35,7 @@
           fill-rule="nonzero"
         />
       </svg>
-      <select id="select" class="border border-gray-200 rounded-lg text-gray-600 h-10 pl-3 pr-6 bg-white hover:border-gray-400 appearance-none"
+      <select id="select" class="align-bottom border border-gray-200 rounded-lg text-gray-600 h-8 pl-2 pr-6 pt-1 bg-white hover:border-gray-400 appearance-none"
         @change="updateIntervals"
         v-model="selectedNumberofBells"
         :disabled="checked === false"
