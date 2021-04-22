@@ -1,21 +1,19 @@
 <template>
-  
-    <div class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600">
+  <div class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600">
+    <div class="px-6 w-full">
       <label for="time">How long would you like to meditate?</label>
-      <div class="text-sm pt-1">
-        <input
-          @change="updateMinutes"
-          type="range"
-          v-model="minutes"
-          min="3"
-          max="60"
-          class="slider"
-          id="time"
-        />
-        <p id="selectedMinutes">{{ minutes }} minutes</p>
-      </div>
+      <input
+        @change="updateMinutes"
+        type="range"
+        v-model="minutes"
+        min="3"
+        max="60"
+        id="time"
+        class="appearance-none w-60 md:max-w-full h-3 rounded-full mt-4 mb-2 bg-pink-200"
+      />
+      <p id="selectedMinutes">{{ minutes }} minutes</p>
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -40,3 +38,7 @@ export default defineComponent({
 });
 </script> 
 
+<style scoped>
+
+
+</style>
