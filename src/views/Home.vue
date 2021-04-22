@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10 min-h-full">
+  <div class="min-h-full">
     <div
       class="grid grid-cols-1 divide-dashed divide-y divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
@@ -21,7 +21,7 @@
           />
         </div>
         <div
-          class="text-xl leading-7 mx-6 text-center pt-6 font-thin text-gray-600"
+          class="text-xl leading-7 px-6 pb-1.5 text-center pt-6 font-thin text-gray-600"
         >
           <p>
             Meditate with
@@ -29,7 +29,7 @@
             {{ selectedInterval }} reminders
           </p>
           <button
-            class="text-lg font-semibold rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white px-6 pt-3 pb-2 mt-4"
+            class="text-xl font-semibold rounded-md bg-blue-400 focus:bg-blue-500 hover:bg-blue-500 text-white px-16 pt-3 pb-2 mt-4"
             @click="goToMeditation"
           >
             Start
@@ -37,9 +37,10 @@
         </div>
       </div>
     </div>
+  <Footer msg="by elenavolpato.me" />
   </div>
 
-  <Footer msg="by elenavolpato.me" />
+  
 </template>
 
 <script>
@@ -101,12 +102,6 @@ export default defineComponent({
 </script>
 
 <style>
-button :is(:active, :focus) {
-  background-image: linear-gradient(
-    to right,
-    rgb(96, 165, 250),
-    rgb(139, 92, 246)
-  );
-}
+
 </style>
 

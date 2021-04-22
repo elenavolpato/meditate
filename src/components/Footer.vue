@@ -1,6 +1,8 @@
 <template>
   <footer >
-    <div class="themefooter"> {{ msg }} </div>
+    <div class="flex justify-center text-lg text-white font-semibold antialiased"> 
+      {{ msg }} 
+    </div>
   </footer>
 </template>
 

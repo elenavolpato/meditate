@@ -5,7 +5,7 @@
     <p>Select a bell sound</p>
     <div class="grid grid-cols-3 md:flex-row gap-3 pt-3 pb-3">
       <button
-        class="text-base font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white pb-2 pt-3 px-3 mt-2"
+        class="text-base font-medium rounded-md bg-purple-400 hover:bg-purple-500 active:bg-purple-500 focus:bg-purple-500 text-white pb-2 pt-3 px-3 mt-2"
         v-for="(bell, id) in bells"
         :key="id"
       >
