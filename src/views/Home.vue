@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-  <Footer msg="by elenavolpato.me" />
+  <Footer/>
   </div>
 
   

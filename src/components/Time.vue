@@ -6,12 +6,13 @@
         @change="updateMinutes"
         type="range"
         v-model="minutes"
-        min="3"
+        min="1"
         max="60"
         id="time"
-        class="appearance-none w-60 md:max-w-full h-3 rounded-full mt-4 mb-2 bg-pink-200"
+        class="slider"
       />
-      <p id="selectedMinutes">{{ minutes }} minutes</p>
+      <p v-if="minutes>1" class="text-base">{{ minutes }} minutes</p>
+      <p v-else class="text-base"> 1 minute</p>
     </div>
   </div>
 </template>
@@ -39,6 +40,38 @@ export default defineComponent({
 </script> 
 
 <style scoped>
-
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 0.8rem;
+  border-radius: 2rem;  
+  background: rgb(251, 207, 232);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-top: 1rem;
+}
+.slider:hover{
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%; 
+  border:none;
+  background: rgb(236, 72, 153);
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius:100%;
+  border:none;
+  background: rgb(236, 72, 153);
+  cursor: pointer;
+}
 
 </style>
