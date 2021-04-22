@@ -1,6 +1,6 @@
 <template>
   
-    <div class="text-xl lowercase leading-5 text-center pt-6 pb-6 font-thin text-gray-600">
+    <div class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600">
       <label for="time">How long would you like to meditate?</label>
       <div class="text-sm pt-1">
         <input

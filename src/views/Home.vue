@@ -1,6 +1,5 @@
 <template>
-  
-  <div class="min-h-full">
+  <div class="mt-10 min-h-full">
     <div
       class="grid grid-cols-1 divide-dashed divide-y divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
@@ -8,7 +7,9 @@
       <div>
         <Header msg="meditation timer" />
       </div>
-      <div class="grid grid-cols-1 divide-dashed divide-y divide-pink-300 flex-shrink-0">
+      <div
+        class="grid grid-cols-1 divide-dashed divide-y divide-pink-300 flex-shrink-0"
+      >
         <Time @minutesSelected="updateMinutes" />
         <div>
           <Sound @bellSelected="updateBell" :bells="bells" />
@@ -19,13 +20,20 @@
             :numberOfBells="numberOfBells"
           />
         </div>
-        <div class="text-xl leading-7 mx-6 text-center pt-6 font-thin text-pink-500">
-          <p id="features">
+        <div
+          class="text-xl leading-7 mx-6 text-center pt-6 font-thin text-gray-600"
+        >
+          <p>
             Meditate with
-            {{ bells[selectedBell].name }} for {{ minutes }} minutes with
-            {{ selectedInterval }} intervals.
+            {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
+            {{ selectedInterval }} reminders
           </p>
-          <button class="text-lg font-semibold rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white px-6 pt-3 pb-2 mt-4" @click="goToMeditation()">Start</button>
+          <button
+            class="text-lg font-semibold rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white px-6 pt-3 pb-2 mt-4"
+            @click="goToMeditation"
+          >
+            Start
+          </button>
         </div>
       </div>
     </div>
@@ -60,7 +68,7 @@ export default defineComponent({
         { name: "solemn sound", id: 2 },
       ],
       selectedBell: 0,
-      numberOfBells: [0, 1, 2, 3, 4, 5],
+      numberOfBells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       minutes: 32,
       selectedInterval: 0,
     };
@@ -93,9 +101,12 @@ export default defineComponent({
 </script>
 
 <style>
-
-button :is(:active,:focus) {
-  background-image: linear-gradient(to right, rgb(96, 165, 250) , rgb(139,92,246));
+button :is(:active, :focus) {
+  background-image: linear-gradient(
+    to right,
+    rgb(96, 165, 250),
+    rgb(139, 92, 246)
+  );
 }
 </style>
 

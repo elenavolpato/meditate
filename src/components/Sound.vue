@@ -1,11 +1,11 @@
 <template>
   <div
-    class="text-xl lowercase leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
+    class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
   >
     <p>Select a bell sound</p>
     <div class="grid grid-cols-3 md:flex-row gap-3 pt-3 pb-3">
       <button
-        class="text-sm font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white p-2 mt-2"
+        class="text-base font-medium rounded-md bg-gradient-to-r from-purple-400 to-pink-500 text-white pb-2 pt-3 px-3 mt-2"
         v-for="(bell, id) in bells"
         :key="id"
       >
@@ -43,9 +43,7 @@ export default defineComponent({
         this.selectedBellAudio.pause();
         this.selectedBellAudio.currentTime = 0;
       }
-      this.selectedBellAudio = document.getElementById(
-        `bell-${selectedBellId}`
-      );
+      this.selectedBellAudio = document.getElementById(`bell-${selectedBellId}`);
       this.selectedBellAudio.play();
       this.$emit("bellSelected", selectedBellId);
     },
