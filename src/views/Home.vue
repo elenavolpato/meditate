@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full">
+  <div class="flex-row">
     <div
       class="grid grid-cols-1 divide-dashed divide-y divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
