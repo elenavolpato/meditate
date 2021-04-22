@@ -1,14 +1,14 @@
 <template>
   <div class="flex-row">
     <div
-      class="grid grid-cols-1 divide-dashed divide-y divide-blue-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
+      class="grid grid-cols-1 divide-dashed divide-y-2 divide-pink-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
     >
       <div>
         <Header msg="meditation timer" />
       </div>
       <div
-        class="grid grid-cols-1 divide-dashed divide-y divide-pink-300 flex-shrink-0"
+        class="grid grid-cols-1 divide-dashed divide-y divide-purple-300 flex-shrink-0"
       >
         <Time @minutesSelected="updateMinutes" />
         <div>
@@ -29,7 +29,7 @@
             {{ selectedInterval }} reminders
           </p>
           <button
-            class="text-xl font-semibold rounded-md bg-blue-400 focus:bg-blue-500 hover:bg-blue-500 text-white px-16 pt-3 pb-2 mt-4"
+            class="text-xl font-semibold rounded-md bg-purple-400 focus:bg-purple-500 hover:bg-purple-500 text-white px-16 pt-3 pb-2 mt-4"
             @click="goToMeditation"
           >
             Start

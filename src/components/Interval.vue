@@ -35,7 +35,7 @@
       <div
         @click="mouseEnter"
         class="select-none text-base text-center align-middle font-semibold px-3 pt-1.5 pb-0.5 ml-5 text-white rounded-full "
-        :class="{ 'bg-purple-400': helpText, 'bg-blue-400': !helpText }"
+        :class="{ 'bg-purple-400': helpText, 'bg-pink-400': !helpText }"
       >
         {{ helpText ? "x" : "?" }}
       </div>

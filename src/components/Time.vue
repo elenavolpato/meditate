@@ -11,14 +11,16 @@
         id="time"
         class="slider"
       />
-      <p v-if="minutes>1" class="text-base">{{ minutes }} minutes</p>
-      <p v-else class="text-base"> 1 minute</p>
+      <div class="text-base pt-1">
+        <p v-if="minutes > 1">{{ minutes }} minutes</p>
+        <p v-else>1 minute</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-/* falta label no tempo */
+
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -40,19 +42,22 @@ export default defineComponent({
 </script> 
 
 <style scoped>
+/*tailwindcss does not allow nice customizations to a 
+range html element, therefore I used plain css*/
+
 .slider {
   -webkit-appearance: none;
   width: 80%;
   height: 0.8rem;
-  border-radius: 2rem;  
+  border-radius: 2rem;
   background: rgb(251, 207, 232);
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   margin-top: 1rem;
 }
-.slider:hover{
+.slider:hover {
   opacity: 1;
 }
 .slider::-webkit-slider-thumb {
@@ -60,18 +65,17 @@ export default defineComponent({
   appearance: none;
   width: 25px;
   height: 25px;
-  border-radius: 100%; 
-  border:none;
+  border-radius: 100%;
+  border: none;
   background: rgb(236, 72, 153);
   cursor: pointer;
 }
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  border-radius:100%;
-  border:none;
+  border-radius: 100%;
+  border: none;
   background: rgb(236, 72, 153);
   cursor: pointer;
 }
-
 </style>
