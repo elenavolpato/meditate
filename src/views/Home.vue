@@ -23,10 +23,15 @@
         <div
           class="text-xl leading-7 px-6 pb-1.5 text-center pt-6 font-thin text-gray-600"
         >
-          <p>
+          <p v-if="selectedInterval!==1">
             Meditate with
             {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
-            {{ selectedInterval }} reminders
+            {{ selectedInterval }} reminders.
+          </p>
+          <p v-else>
+            Meditate with
+            {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
+            1 reminder.
           </p>
           <button
             class="text-xl font-semibold rounded-md bg-purple-400 focus:bg-purple-500 hover:bg-purple-500 text-white px-16 pt-3 pb-2 mt-4"
@@ -50,6 +55,14 @@ import Time from "../components/Time.vue";
 import Footer from "../components/Footer.vue";
 import Interval from "../components/Interval.vue";
 import { defineComponent } from "vue";
+
+/* make it save the state locally for future meditations 
+to be added to a page  of total time meditated - VUEX. also, 
+think about a gamification feature such as the one in 
+atom app. 
+BY SAVING LOCALLY, PUT A WARNING SUCH AS "if you uninstall 
+the app, your data will be lost."
+*/
 
 export default defineComponent({
   components: {

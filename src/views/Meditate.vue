@@ -4,7 +4,7 @@
 
 
 <template>
-  <div class="flex max-w-sm mx-auto">
+  <div class="grid text-center my-0 justify-center align-baseline h-screen">
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -13,12 +13,14 @@
     >
       Your browser does not support the audio element.
     </audio>
-    <div class="pt-6 space-y-4" v-show="elapsed != undefined">
-      <p>{{ prettyTime }}</p>
-    </div>
-    <div class="font-medium text-black">
-      <button @click="play">play</button>
-      <button @click="pause">pause</button>
+
+    <div class="text-7xl text-white font-extrabold">
+      <p v-if="!finished">{{ prettyTime }}</p>
+      <p v-else> NAMASTE! </p>
+   </div>
+    <div>
+      <button v-if="isPlayed" @click="pause">pause</button>
+      <button v-else @click="play">play</button>
     </div>
     <!-- <canvas width="2" height="2"></canvas> -->
   </div>
@@ -26,6 +28,12 @@
 
 <script>
 import { defineComponent } from "vue";
+import {
+  PlayIcon,
+  PauseIcon,
+  SettingsIcon,
+  ChevronLeftIcon,
+} from "vue-feather-icons";
 
 const numEndBells = 3;
 const intervalEndBells = 3500;
@@ -41,6 +49,13 @@ var pixels = [
 ];
  */
 export default defineComponent({
+  component: {
+    PlayIcon,
+    PauseIcon,
+    SettingsIcon,
+    ChevronLeftIcon,
+  },
+
   name: "meditate",
   props: ["time", "bell", "interval"],
   data() {
@@ -54,9 +69,12 @@ export default defineComponent({
       intervalTime: 0,
       //timer data
       totalTime: this.time * 60000,
-      startTime: undefined,
+      startTime: -1,
       elapsed: undefined,
+      totalElapsed: 0,
       secs: intervalEndBells,
+      isPlayed: false,
+      finished: false
     };
   },
   mounted() {
@@ -84,33 +102,49 @@ export default defineComponent({
   },
 
   methods: {
-    //basic play and pause functions
+    //basic play and pause functions for animation and sound
     play() {
       this.sound.play();
       window.requestAnimationFrame(this.countdown);
+      this.isPlayed = true;
     },
+    setTimeout(timestamp) {
+      this.pausedTimestamp = timestamp;
+      window.cancelAnimationFrame(this.countdown);
+      console.log(this.pausedTimestamp);
+    },
+
     pause() {
       this.sound.pause();
+      this.isPlayed = false;
     },
 
     //timer setup
     countdown(timestamp) {
-      if (this.startTime === undefined) {
-        this.startTime = timestamp;
-      }
-      this.elapsed = timestamp - this.startTime;
-      if (this.elapsed <= this.totalTime) {
-        if (this.elapsed >= this.intervalTime * this.currentInterval) {
-          this.playIntervalBell();
-          this.currentInterval++;
-          console.log("INTERVALOS");
+      if (this.isPlayed) {
+        if (this.startTime === -1) {
+          this.startTime = timestamp;
         }
-        window.requestAnimationFrame(this.countdown);
-      } else {
-        console.log("END BELLS");
-        this.startTime = -1;
-        window.requestAnimationFrame(this.endMeditation);
+        this.elapsed = timestamp - this.startTime + this.totalElapsed;
+        if (this.elapsed <= this.totalTime) {
+          if (this.elapsed >= this.intervalTime * this.currentInterval) {
+            this.playIntervalBell();
+            this.currentInterval++;
+            console.log("INTERVALOS");
+          }
+          window.requestAnimationFrame(this.countdown);
+        } else {
+          console.log("END BELLS");
+          this.startTime = -1;
+          this.finished = true
+          window.requestAnimationFrame(this.endMeditation);
+        }
       }
+      else if (this.startTime !== -1){
+        this.totalElapsed = this.elapsed;
+        this.startTime = -1;
+      }
+
     },
     //plays bells in between
     playIntervalBell() {
@@ -122,11 +156,13 @@ export default defineComponent({
     endMeditation(timestamp) {
       if (this.startTime == -1) {
         this.startTime = timestamp;
+        this.sound.currentTime = 0;
+        this.sound.play();
       }
       this.elapsed = timestamp - this.startTime;
+      
       if (this.elapsed <= numEndBells * intervalEndBells + 1) {
         if (this.elapsed >= this.secs) {
-          this.sound.pause();
           this.sound.currentTime = 0;
           this.sound.play();
           this.secs = this.secs + intervalEndBells;
@@ -176,7 +212,7 @@ animate();*/
 </script>
 
 <style scoped>
-body {
+/* body {
   margin: 0 auto;
 }
 
@@ -196,5 +232,5 @@ canvas {
   width: 100%;
   height: 100%;
   transform: scale(2);
-}
+} */
 </style>
