@@ -16,7 +16,7 @@
 
     <div class="text-7xl text-white font-extrabold">
       <p v-if="!finished">{{ prettyTime }}</p>
-      <p v-else> NAMASTE! </p>
+      <p v-else> 00:00 </p>
    </div>
     <div>
       <button v-if="isPlayed" @click="pause">pause</button>
@@ -74,7 +74,7 @@ export default defineComponent({
       totalElapsed: 0,
       secs: intervalEndBells,
       isPlayed: false,
-      finished: false
+      finished: false,
     };
   },
   mounted() {
@@ -97,11 +97,16 @@ export default defineComponent({
 
   computed: {
     prettyTime() {
-      return ((this.totalTime - this.elapsed) / 1000).toFixed(0);
+      return this.convertMinutes(((this.totalTime - this.elapsed)).toFixed(0))
     },
   },
 
   methods: {
+    convertMinutes(milliseconds) {
+      let minutes = String(Math.floor(milliseconds / 60000)).padStart(2,0);
+      let seconds = String(((milliseconds % 60000) / 1000).toFixed(0)).padStart(2,0);
+      return `${minutes}:${seconds}`; 
+    },
     //basic play and pause functions for animation and sound
     play() {
       this.sound.play();
