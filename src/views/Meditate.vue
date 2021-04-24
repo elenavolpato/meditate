@@ -1,10 +1,7 @@
-    <!-- config button returns do the main page -->
-
-    <!-- change this to a circle or a timer. ref meditate typescript -->
-
-
 <template>
-  <div class="grid text-center my-0 justify-center align-baseline h-screen">
+  <div class="z-10 grid text-center justify-center align-top h-screen"> 
+    <canvas width="2" height="2"></canvas>
+
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -13,50 +10,32 @@
     >
       Your browser does not support the audio element.
     </audio>
-
     <div class="text-7xl text-white font-extrabold">
-      <p v-if="!isPlayed"> {{ convertMinutes(totalTime) }}</p>
-      <p v-else-if="!finished">{{ prettyTime }}</p>
-      <p v-else> 00:00 </p>
-   </div>
-    <div> 
-      <button v-if="isPlayed" @click="pause">pause</button>
-      <button v-else @click="play">play</button>
+      <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
+      <div v-else-if="!finished">{{ prettyTime }}</div>
+      <div v-else class="text-3xl">
+        <p class="mb-2">Congratulations!</p>
+        <p>You meditated for {{ convertMinutes(totalTime) }}</p>
+      </div>
     </div>
-    <!-- <canvas width="2" height="2"></canvas> -->
+    <div v-show="!finished">
+      <button v-if="isPlayed" @click="pause" class="w-20 h-20">
+        <img src="/noun_Stop_559095.svg" alt="pause button" />
+      </button>
+      <button v-else @click="play">
+        <img src="/noun_play_559093.svg" alt="play button" class="w-20 h-20" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import {
-  PlayIcon,
-  PauseIcon,
-  SettingsIcon,
-  ChevronLeftIcon,
-} from "vue-feather-icons";
-
 const numEndBells = 3;
 const intervalEndBells = 3500;
 
-/* //configurations to background color animation
-var canvas = document.querySelector("canvas");
-var ctx = canvas.getContext("2d");
-var pixels = [
-  new Pixel(0, 0),
-  new Pixel(1, 0),
-  new Pixel(0, 1),
-  new Pixel(1, 1),
-];
- */
-export default defineComponent({
-  component: {
-    PlayIcon,
-    PauseIcon,
-    SettingsIcon,
-    ChevronLeftIcon,
-  },
+import { defineComponent } from "vue";
 
+export default defineComponent({
   name: "meditate",
   props: ["time", "bell", "interval"],
   data() {
@@ -76,6 +55,7 @@ export default defineComponent({
       secs: intervalEndBells,
       isPlayed: false,
       finished: false,
+      
     };
   },
   mounted() {
@@ -84,29 +64,41 @@ export default defineComponent({
       this.totalTime === undefined ||
       this.selectedlInterval === undefined
     ) {
-      this.totalTime = 0.2 * 60000;
+      this.totalTime = 2 * 60000;
       this.selectedBell = 2;
       this.selectedlInterval = 2;
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
-  },
+ },
 
   computed: {
     prettyTime() {
-      return this.convertMinutes(((this.totalTime - this.elapsed)).toFixed(0))
+      return this.convertMinutes((this.totalTime - this.elapsed).toFixed(0));
     },
   },
 
   methods: {
+    //conver milliseconds do minutes and seconds
     convertMinutes(milliseconds) {
-      let minutes = String(Math.floor(milliseconds / 60000)).padStart(2,0);
-      let seconds = String(((milliseconds % 60000) / 1000).toFixed(0)).padStart(2,0);
-      return `${minutes}:${seconds}`; 
+      let minutes = Math.floor(milliseconds / 60000);
+      let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
+      if (seconds === 60) {
+        minutes += 1;
+        seconds = "00";
+      }
+      minutes = String(minutes).padStart(2, 0);
+      seconds = String(seconds).padStart(2, 0);
+
+      return `${minutes}:${seconds}`;
+      //erro na conversão!!!
     },
-    //basic play and pause functions for animation and sound
+
+    //basic play and pause functions (for timer and sound)
     play() {
-      this.sound.play();
+      if (this.elapsed === undefined) {
+        this.sound.play();
+      }
       window.requestAnimationFrame(this.countdown);
       this.isPlayed = true;
     },
@@ -115,7 +107,6 @@ export default defineComponent({
       window.cancelAnimationFrame(this.countdown);
       console.log(this.pausedTimestamp);
     },
-
     pause() {
       this.sound.pause();
       this.isPlayed = false;
@@ -138,19 +129,16 @@ export default defineComponent({
         } else {
           console.log("END BELLS");
           this.startTime = -1;
-          this.finished = true
+          this.finished = true;
           window.requestAnimationFrame(this.endMeditation);
         }
-      }
-      else if (this.startTime !== -1){
+      } else if (this.startTime !== -1) {
         this.totalElapsed = this.elapsed;
         this.startTime = -1;
       }
-
     },
     //plays bells in between
     playIntervalBell() {
-      this.sound.pause();
       this.sound.currentTime = 0;
       this.sound.play();
     },
@@ -162,7 +150,7 @@ export default defineComponent({
         this.sound.play();
       }
       this.elapsed = timestamp - this.startTime;
-      
+
       if (this.elapsed <= numEndBells * intervalEndBells + 1) {
         if (this.elapsed >= this.secs) {
           this.sound.currentTime = 0;
@@ -173,66 +161,7 @@ export default defineComponent({
       }
     },
   },
+  
 });
-
-/*//background colors animation - transform to vue
-
-function Pixel(x, y) {
-  this.x = x;
-  this.y = y;
-  this.hue = Math.floor(Math.random() * 360);
-  var direction = Math.random() > 0.5 ? -1 : 1;
-  this.velocity = (Math.random() * 30 + 20) * 0.01 * direction;
-}
-
-Pixel.prototype.update = function () {
-  this.hue += this.velocity;
-};
-
-Pixel.prototype.render = function (ctx) {
-  var hue = Math.round(this.hue);
-  ctx.fillStyle = "hsl(" + hue + ", 100%, 50% )";
-  ctx.fillRect(this.x, this.y, 1, 1);
-};
-
-var pixels = [
-  new Pixel(0, 0),
-  new Pixel(1, 0),
-  new Pixel(0, 1),
-  new Pixel(1, 1),
-];
-
-function animate() {
-  pixels.forEach(function (pixel) {
-    pixel.update();
-    pixel.render(ctx);
-  });
-  requestAnimationFrame(animate);
-}
-
-animate();*/
 </script>
 
-<style scoped>
-/* body {
-  margin: 0 auto;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: scale(2);
-} */
-</style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex-row">
+  <div class="h-screen grid">
     <div
-      class="grid grid-cols-1 divide-dashed divide-y-2 divide-pink-300 container rounded-xl mx-auto my-4 md:my-uto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
+      class="grid grid-cols-1 align-middle divide-dashed divide-y-2 divide-pink-300 container rounded-xl mx-auto my-auto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
       id="home"
     >
       <div>
