@@ -10,7 +10,7 @@ module.exports = {
       'sm': {'max': '639px'},
     },    
     fontFamily: {
-      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+      'nunito': ['Nunito', 'Arial', 'sans-serif'],
     },
     extend: {
       keyframes: {

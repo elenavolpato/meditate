@@ -22,7 +22,7 @@
         <img src="/noun_Stop_559095.svg" alt="pause button" />
       </button>
       <button v-else @click="play">
-        <img src="/noun_play_559093.svg" alt="play button" class="w-20 h-20" />
+        <img src="/noun_play_559093.svg" alt="play button" class="w-20 h-20 transition-transform duration-500 ease-in-out " />
       </button>
     </div>
   </div>
