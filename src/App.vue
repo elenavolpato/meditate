@@ -1,5 +1,4 @@
 <template>
-  
   <div 
     class="z-10 absolute inset-0 h-screen font-nunito overflow-hidden"
     id="app">
@@ -43,7 +42,6 @@ export default defineComponent({
       ],
     }
   },
-
   mounted() {
     this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");

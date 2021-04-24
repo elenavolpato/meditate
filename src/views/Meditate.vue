@@ -9,7 +9,7 @@
     >
       Your browser does not support the audio element.
     </audio>
-    <div class="grid-row text-7xl text-white font-extrabold">
+    <div class="grid-row text-7xl text-white font-bold">
       <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
       <div v-else-if="!finished">{{ prettyTime }}</div>
       <div v-else class="text-3xl">
@@ -18,12 +18,19 @@
       </div>
     </div>
     <div v-show="!finished">
-      <button v-if="isPlayed" @click="pause" class="w-20 h-20">
-        <img src="/noun_Stop_559095.svg" alt="pause button" />
-      </button>
-      <button v-else @click="play">
-        <img src="/noun_play_559093.svg" alt="play button" class="w-20 h-20 transition-transform duration-500 ease-in-out " />
-      </button>
+      <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in">
+        <button key="pause" v-if="isPlayed" @click="pause" class="w-16 h-16 ">
+          <img src="/noun_Stop_559095.svg" alt="pause button" />
+        </button>
+        <button key="play" v-else @click="play" >
+          <img src="/noun_play_559093.svg" alt="play button" class="w-16 h-16" />
+        </button>
+      </transition>
+    </div>
+    <div class="relative">
+      <router-link to="/" class="backButton font-extrabold py-2 px-4 text-lg" @click="bac"> 
+        Back 
+      </router-link>
     </div>
   </div>
 </template>
@@ -161,4 +168,30 @@ export default defineComponent({
   
 });
 </script>
+
+<style scoped>
+
+.backButton {
+  position: relative;
+  border: none;
+  background: none;
+  outline: none;
+  color: black;
+  mix-blend-mode: screen;
+}
+
+.backButton::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  border-radius: 0.5em;
+  content: '';
+  mix-blend-mode: color-burn;
+}
+
+
+</style>
 

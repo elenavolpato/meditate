@@ -33,11 +33,29 @@ module.exports = {
             opacity: '0',
             transform: 'translateY(-10px)'
           },
+        },
+        'fade-out': {
+          'from': {
+            opacity: '1',
+          },
+          'to': {
+            opacity: '0',
+          }
+        },
+        'fade-in': {
+          'from': {
+            opacity: '0',
+          },
+          'to': {
+            opacity: '1',
+          }
         }
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.3s ease-in',
-        'fade-out-up': 'fade-out-up 0.3s ease-out'
+        'fade-out-up': 'fade-out-up 0.3s ease-out',
+        'fade-out': 'fade-out 0.15s ease-out',
+        'fade-in': 'fade-in 0.215s ease-in'
       }
     },
   },
