@@ -1,5 +1,5 @@
 <template>
-  <div class="z-10 grid text-center justify-center align-top h-screen"> 
+  <div class="overfloe-hidden z-10 grid text-center justify-center align-top h-screen"> 
     <canvas width="2" height="2"></canvas>
 
     <audio

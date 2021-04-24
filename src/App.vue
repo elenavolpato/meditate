@@ -3,7 +3,6 @@
   <div 
     class="z-10 absolute inset-0 h-full font-sans"
     id="app">
-    
     <router-view />
   </div>
 </template>
@@ -11,6 +10,7 @@
 <script>
 import { defineComponent } from "vue";
 
+//background animation functions 
 const Pixel = function(x, y) {
   this.x = x;
   this.y = y;
@@ -18,11 +18,9 @@ const Pixel = function(x, y) {
   var direction = Math.random() > 0.5 ? -1 : 1;
   this.velocity = (Math.random() * 30 + 20) * 0.01 * direction;
 }
-
 Pixel.prototype.update = function () {
   this.hue += this.velocity;
 };
-
 Pixel.prototype.render = function (ctx) {
   var hue = Math.round(this.hue);
   ctx.fillStyle = "hsl(" + hue + ", 100%, 50% )";
@@ -33,7 +31,7 @@ export default defineComponent({
   name: "App",
   data(){
     return {
-      //bg
+      //background animation data
       canvas: undefined,
       ctx: undefined,
       pixels: [
@@ -63,7 +61,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 
 canvas {
   width: 100%;
@@ -71,7 +69,6 @@ canvas {
   transform: scale(2);
   z-index:-1;
   position: absolute;
-  overflow: hidden;
 } 
 
 </style>
