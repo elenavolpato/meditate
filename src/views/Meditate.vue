@@ -1,7 +1,6 @@
 <template>
-  <div class="overfloe-hidden z-10 grid text-center justify-center align-top h-screen"> 
+  <div class="z-10 grid text-center justify-center align-top h-screen"> 
     <canvas width="2" height="2"></canvas>
-
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -10,7 +9,7 @@
     >
       Your browser does not support the audio element.
     </audio>
-    <div class="text-7xl text-white font-extrabold">
+    <div class="grid-row text-7xl text-white font-extrabold">
       <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
       <div v-else-if="!finished">{{ prettyTime }}</div>
       <div v-else class="text-3xl">
@@ -83,15 +82,13 @@ export default defineComponent({
     convertMinutes(milliseconds) {
       let minutes = Math.floor(milliseconds / 60000);
       let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
-      if (seconds === 60) {
+      if (seconds === "60") {
         minutes += 1;
         seconds = "00";
       }
       minutes = String(minutes).padStart(2, 0);
-      seconds = String(seconds).padStart(2, 0);
-
+      seconds = seconds.padStart(2, 0);
       return `${minutes}:${seconds}`;
-      //erro na conversão!!!
     },
 
     //basic play and pause functions (for timer and sound)

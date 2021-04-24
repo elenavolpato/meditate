@@ -1,8 +1,9 @@
 <template>
-  <canvas width="2" height="2"></canvas>
+  
   <div 
-    class="z-10 absolute inset-0 h-full font-sans"
+    class="z-10 absolute inset-0 h-screen  font-sans overflow-hidden"
     id="app">
+    <canvas width="2" height="2"></canvas>
     <router-view />
   </div>
 </template>
