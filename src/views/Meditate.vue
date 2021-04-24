@@ -15,10 +15,11 @@
     </audio>
 
     <div class="text-7xl text-white font-extrabold">
-      <p v-if="!finished">{{ prettyTime }}</p>
+      <p v-if="!isPlayed"> {{ convertMinutes(totalTime) }}</p>
+      <p v-else-if="!finished">{{ prettyTime }}</p>
       <p v-else> 00:00 </p>
    </div>
-    <div>
+    <div> 
       <button v-if="isPlayed" @click="pause">pause</button>
       <button v-else @click="play">play</button>
     </div>
@@ -88,10 +89,6 @@ export default defineComponent({
       this.selectedlInterval = 2;
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
-    console.log(this.totalTime);
-    console.log(this.selectedBell);
-    console.log(this.selectedlInterval);
-    console.log(this.intervalTime);
     this.sound = document.getElementById("meditationSound");
   },
 
