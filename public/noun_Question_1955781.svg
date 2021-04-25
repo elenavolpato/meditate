@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-name="Layer 1"
+   viewBox="0 0 100 125"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="noun_Question_1955781.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Artboard 5</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1864"
+     inkscape:window-height="1016"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="1.888"
+     inkscape:cx="50"
+     inkscape:cy="62.5"
+     inkscape:window-x="56"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <title
+     id="title2">Artboard 5</title>
+  <path
+     d="M50,3A47,47,0,1,0,97,50,47,47,0,0,0,50,3Zm-.64,77.92a5.38,5.38,0,1,1,5.38-5.38A5.39,5.39,0,0,1,49.36,80.92Zm5.88-26.12s-.53.19-.53.5v4.27a5.35,5.35,0,1,1-10.71,0V55.3a11.32,11.32,0,0,1,7.81-10.65A7.6,7.6,0,0,0,57,37.19a7.81,7.81,0,0,0-7.69-7.4,7.58,7.58,0,0,0-6.81,4.32,5.35,5.35,0,0,1-9.65-4.65A18.23,18.23,0,0,1,49.22,19.08h.11A18.48,18.48,0,0,1,67.69,36.87,18.25,18.25,0,0,1,55.25,54.79Z"
+     id="path4"
+     style="fill:#ffffff" />
+</svg>
