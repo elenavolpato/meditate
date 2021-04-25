@@ -9,7 +9,7 @@
     >
       Your browser does not support the audio element.
     </audio>
-    <div class="with-glow grid-row text-7xl text-white font-bold">
+    <div class="with-glow grid-row text-7xl text-white font-bold items-end">
       <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
       <div v-else-if="!finished">{{ prettyTime }}</div>
       <div v-else class="text-3xl">
