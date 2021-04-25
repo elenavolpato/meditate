@@ -41,7 +41,7 @@
     <transition enter-active-class="animate-fade-in-down" leave-active-class="animate-fade-out-up">
     <div 
       v-show="helpText"
-      class="text-sm text-right pt-3 ml-20 mr-5"
+      class="text-sm text-right pt-3 ml-32 mr-5"
     >
       Reminder bells are played along your meditation to make you come back to
       your breath. You can choose up to 10 reminders.
