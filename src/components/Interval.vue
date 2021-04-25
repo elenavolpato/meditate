@@ -17,7 +17,7 @@
       </svg>
       <select
         id="number-bells-select"
-        class="align-center border text-middle rounded-full text-gray-600 h-8 pl-2 pr-6  bg-white hover:border-gray-400 appearance-none"
+        class="align-center border text-middle rounded-full text-gray-600 h-8 pl-2 pr-6 bg-white hover:border-gray-400 appearance-none"
         @change="updateIntervals"
         v-model="selectedNumberofBells"
       >
@@ -41,7 +41,7 @@
     <transition enter-active-class="animate-fade-in-down" leave-active-class="animate-fade-out-up">
     <div 
       v-show="helpText"
-      class="text-sm text-right pt-3 ml-32 mr-5"
+      class="text-sm text-right pt-3 ml-32 mr-5 sm:ml-5"
     >
       Reminder bells are played along your meditation to make you come back to
       your breath. You can choose up to 10 reminders.
