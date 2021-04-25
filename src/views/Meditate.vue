@@ -28,8 +28,10 @@
       </transition>
     </div>
     <div class="relative">
-      <router-link to="/" class="backButton font-extrabold py-2 px-4 text-lg" @click="bac"> 
-        Back 
+      <router-link  to="/">
+        <button @click="backHome" class="backButton font-extrabold  text-center py-2 px-4 text-lg"> 
+          Back 
+        </button>
       </router-link>
     </div>
   </div>
@@ -50,7 +52,7 @@ export default defineComponent({
       selectedBell: this.bell,
       sound: undefined,
       //interval data
-      selectedlInterval: this.interval + 1,
+      selectedlInterval: Number(this.interval) + 1,
       currentInterval: 1,
       intervalTime: 0,
       //timer data
@@ -72,10 +74,11 @@ export default defineComponent({
     ) {
       this.totalTime = 2 * 60000;
       this.selectedBell = 2;
-      this.selectedlInterval = 2;
+      
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
+    console.log(this.selectedlInterval);
  },
 
   computed: {
@@ -109,7 +112,7 @@ export default defineComponent({
     setTimeout(timestamp) {
       this.pausedTimestamp = timestamp;
       window.cancelAnimationFrame(this.countdown);
-      console.log(this.pausedTimestamp);
+
     },
     pause() {
       this.sound.pause();
@@ -127,11 +130,9 @@ export default defineComponent({
           if (this.elapsed >= this.intervalTime * this.currentInterval) {
             this.playIntervalBell();
             this.currentInterval++;
-            console.log("INTERVALOS");
           }
           window.requestAnimationFrame(this.countdown);
         } else {
-          console.log("END BELLS");
           this.startTime = -1;
           this.finished = true;
           window.requestAnimationFrame(this.endMeditation);
@@ -164,6 +165,9 @@ export default defineComponent({
         window.requestAnimationFrame(this.endMeditation);
       }
     },
+    backHome() {
+      window.cancelAnimationFrame(this.countdown);
+    }
   },
   
 });

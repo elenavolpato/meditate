@@ -20,7 +20,7 @@
         class="align-bottom border border-gray-200 rounded-lg text-gray-600 h-8 pl-2 pr-6 pt-1 bg-white hover:border-gray-400 appearance-none"
         @change="updateIntervals"
         v-model="selectedNumberofBells"
-        :disabled="checked === false"
+        
       >
         <option
           :value="numberOfBell"
@@ -87,12 +87,5 @@ export default defineComponent({
 
 
 <style>
-.toggle-checkbox:checked {
-  right: 0;
-  border-color: rgb(96, 165, 250);
-}
 
-.toggle-checkbox:checked + .toggle-label {
-  background-color: rgb(96, 165, 250);
-}
 </style>

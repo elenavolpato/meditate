@@ -95,7 +95,6 @@ export default defineComponent({
       this.minutes = event;
     },
     updateIntervals(event) {
-      console.log("eee");
       this.selectedInterval = event;
     },
   },
