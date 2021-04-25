@@ -4,7 +4,6 @@
     font-family: 'Nunito';
     src: local('Nunito'),  format('ttf');
   };
-  
 
 
 @tailwind utilities;

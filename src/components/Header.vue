@@ -1,6 +1,6 @@
 <template>
-  <header class="relative block h-0 object-center-bottom lowercase text-4xl font-bold text-white">
-    <h1 class="bottom-0 text-center">{{ msg }}</h1>
+  <header class="mt-10 font-black text-5xl">
+    <h1 class="lowercase sm:text-4xl text-white">{{ msg }}</h1>
   </header>
 </template>
 

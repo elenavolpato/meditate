@@ -70,4 +70,9 @@ canvas {
   position: absolute;
 } 
 
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"),
+  url(.fonts/Nunito/Nunito-SemiBold.ttf) format("truetype");
+}
 </style>

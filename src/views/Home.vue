@@ -1,9 +1,9 @@
 <template>
   <div class="h-screen grid">
-    <div class="grid grid-cols-1 align-middle">
+    <div class="container max-w-md mx-auto text-center content-center max-h-full">
       <Header msg="meditation timer" />
-      <div class="container rounded-xl mx-auto my-auto pt-0 p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden" id="home">
-        <div class="grid grid-cols-1 divide-dashed divide-y divide-purple-300 flex-shrink-0">
+      <div class="rounded-xl max-w-full my-auto pt-0 p-4 bg-white bg-opacity-60 shadow-md overflow-hidden" id="home">
+        <div class="grid grid-cols-1">
           <Time @minutesSelected="updateMinutes" />
           <div>
             <Sound @bellSelected="updateBell" :bells="bells" />
@@ -25,7 +25,7 @@
               {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
               1 reminder.
             </p>
-            <button class="text-xl font-semibold rounded-md bg-purple-400 focus:bg-purple-500 hover:bg-purple-500 text-white px-16 pt-3 pb-2 mt-4" @click="goToMeditation">
+            <button class="text-xl text-center font-bold rounded-3xl bg-gray-600 focus:bg-gray-700 hover:bg-gray-700 text-white px-16 py-3 mt-5" @click="goToMeditation">
               Start
             </button>
           </div>
