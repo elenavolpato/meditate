@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600 relative"
+    class="text-xl leading-5 pt-6 pb-6 relative"
   >
     <label for="number-bells-select" class="mr-4">Reminder bells?</label>
     <div class="relative inline-flex">
@@ -17,10 +17,9 @@
       </svg>
       <select
         id="number-bells-select"
-        class="align-bottom border border-gray-200 rounded-lg text-gray-600 h-8 pl-2 pr-6 pt-1 bg-white hover:border-gray-400 appearance-none"
+        class="align-center border text-middle rounded-full text-gray-600 h-8 pl-2 pr-6  bg-white hover:border-gray-400 appearance-none"
         @change="updateIntervals"
         v-model="selectedNumberofBells"
-        
       >
         <option
           :value="numberOfBell"
@@ -31,13 +30,12 @@
         </option>
       </select>
     </div>
-    <div id="what-is" class="absolute top-6 right-2">
-      <div
-        @click="mouseEnter"
-        class="select-none text-base text-center align-middle font-semibold px-3 pt-1.5 pb-0.5 ml-5 text-white rounded-full "
-        :class="{ 'bg-purple-400': helpText, 'bg-pink-400': !helpText }"
-      >
-        {{ helpText ? "x" : "?" }}
+    <div id="what-is" class="absolute top-6 right-2 w-8 h-8">
+      <div v-if="!helpText" @click="mouseEnter"> 
+        <img src='/noun_Question_1955781.svg' alt='question icon'/>
+      </div>
+      <div v-else @click="mouseEnter">
+        <img src='/noun_wrong_1890786.svg' alt='close icon'/> 
       </div>
     </div>
     <transition enter-active-class="animate-fade-in-down" leave-active-class="animate-fade-out-up">
@@ -78,9 +76,6 @@ export default defineComponent({
     mouseEnter() {
       this.helpText = !this.helpText;
     },
-    mouseClick(){
-
-    }
   },
 });
 </script> 

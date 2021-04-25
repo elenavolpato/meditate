@@ -3,15 +3,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      '2xl': {'max': '1535px'},
-      'xl': {'max': '1279px'},
-      'lg': {'max': '1023px'},
-      'md': {'max': '767px'},
-      'sm': {'max': '639px'},
-    },    
-    fontFamily: {
-      'nunito': ['Nunito', 'Arial', 'sans-serif'],
+      '2xl': { 'max': '1535px' },
+      'xl': { 'max': '1279px' },
+      'lg': { 'max': '1023px' },
+      'md': { 'max': '767px' },
+      'sm': { 'max': '639px' },
     },
+    fontFamily: {
+      'sans': ['Nunito', 'Arial', 'sans-serif'],
+    },
+    
     extend: {
       keyframes: {
         'fade-in-down': {

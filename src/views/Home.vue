@@ -1,9 +1,9 @@
 <template>
   <div class="h-screen grid">
-    <div class="container max-w-md mx-auto text-center content-center max-h-full">
+    <div class="container max-w-lg mx-auto text-center content-center max-h-full ">
       <Header msg="meditation timer" />
-      <div class="rounded-xl max-w-full my-auto pt-0 p-4 bg-white bg-opacity-60 shadow-md overflow-hidden" id="home">
-        <div class="grid grid-cols-1">
+      <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto pt-0 p-4 bg-gray-200 bg-opacity-50 shadow overflow-hidden" id="home">
+        <div class="grid grid-cols-1 text-xl font-semibold leading-5 text-center text-gray-700">
           <Time @minutesSelected="updateMinutes" />
           <div>
             <Sound @bellSelected="updateBell" :bells="bells" />
@@ -14,7 +14,7 @@
               :numberOfBells="numberOfBells"
             />
           </div>
-          <div class="text-xl leading-7 px-6 pb-1.5 text-center pt-6 font-thin text-gray-600">
+          <div class="px-6 pb-1.5 pt-6">
             <p v-if="selectedInterval !== 1">
               Meditate with
               {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
@@ -25,14 +25,14 @@
               {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
               1 reminder.
             </p>
-            <button class="text-xl text-center font-bold rounded-3xl bg-gray-600 focus:bg-gray-700 hover:bg-gray-700 text-white px-16 py-3 mt-5" @click="goToMeditation">
+            <button class="font-bold text-2xl rounded-full  shadow-lg text-gray-600 bg-gray-100 px-10 py-3 mt-5" @click="goToMeditation">
               Start
             </button>
           </div>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
+    </div>  
   </div>
 </template>
 

@@ -9,7 +9,7 @@
     >
       Your browser does not support the audio element.
     </audio>
-    <div class="grid-row text-7xl text-white font-bold">
+    <div class="with-glow grid-row text-7xl text-white font-bold">
       <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
       <div v-else-if="!finished">{{ prettyTime }}</div>
       <div v-else class="text-3xl">
@@ -17,7 +17,7 @@
         <p>You meditated for {{ convertMinutes(totalTime) }}</p>
       </div>
     </div>
-    <div v-show="!finished">
+    <div class="with-glow" v-show="!finished">
       <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in">
         <button key="pause" v-if="isPlayed" @click="pause" class="w-16 h-16 ">
           <img src="/noun_Stop_559095.svg" alt="pause button" />
@@ -29,7 +29,7 @@
     </div>
     <div class="relative">
       <router-link  to="/">
-        <button @click="backHome" class="backButton font-extrabold  text-center py-2 px-4 text-lg"> 
+        <button @click="backHome" class="backButton font-bold text-2xl rounded-full shadow-lg px-8 py-2 "> 
           Back 
         </button>
       </router-link>
@@ -191,11 +191,13 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   background: white;
-  border-radius: 0.5em;
+  border-radius: 2rem;
   content: '';
   mix-blend-mode: color-burn;
 }
-
+.with-glow{
+  text-shadow: 1px 1px 5px lightgray;
+}
 
 </style>
 

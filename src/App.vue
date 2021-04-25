@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="z-10 absolute inset-0 h-screen font-nunito overflow-hidden"
+    class="z-10 absolute inset-0 h-screen font-sans overflow-hidden"
     id="app">
     <canvas width="2" height="2"></canvas>
     <router-view />
@@ -70,9 +70,5 @@ canvas {
   position: absolute;
 } 
 
-@font-face {
-  font-family: "Nunito";
-  src: local("Nunito"),
-  url(.fonts/Nunito/Nunito-SemiBold.ttf) format("truetype");
-}
+
 </style>

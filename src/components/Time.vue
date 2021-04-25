@@ -1,6 +1,6 @@
 <template>
-  <div class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600">
-    <div class="px-6 w-full">
+  <div class="pt-6">
+    <div class="px-6 py-4 w-full">
       <label for="time">How long would you like to meditate?</label>
       <input
         @change="updateMinutes"
@@ -11,7 +11,7 @@
         id="time"
         class="slider"
       />
-      <div class="text-base pt-1">
+      <div class="font-bold text-white">
         <p v-if="minutes > 1">{{ minutes }} minutes</p>
         <p v-else>1 minute</p>
       </div>
@@ -50,12 +50,13 @@ range html element, therefore I used plain css*/
   width: 80%;
   height: 0.8rem;
   border-radius: 2rem;
-  background: rgba(75, 85, 99);
+  background: white;
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 .slider:hover {
   opacity: 1;
@@ -63,19 +64,20 @@ range html element, therefore I used plain css*/
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
-  border: none;
-  background: rgb(236, 72, 153);
+  border: 0.1px lightgray solid;
+  background: whitesmoke;
   cursor: pointer;
 }
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
-  border: none;
-  background: rgb(236, 72, 153);
+  border: 0.1px lightgray solid;
+  background: white;
   cursor: pointer;
+  box-shadow: gray;
 }
 </style>

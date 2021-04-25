@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="text-xl leading-5 text-center pt-6 pb-6 font-thin text-gray-600"
-  >
+  <div class="py-6">
     <p>Select a bell sound</p>
-    <div class="grid grid-cols-3  gap-3 pt-3 pb-3">
+    <div class="gap-3 ">
       <button
-        class="text-base font-medium rounded-md bg-pink-400 hover:bg-pink-500 selected:bg-pink-500 focus:bg-pink-500 text-white pb-2 pt-3 px-3 mt-2"
+        class="text-md text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-10 active:bg-opacity-20 hover:bg-opacity-20 py-3 px-0 mt-5"
         v-for="(bell, id) in bells"
         :key="id"
       >

@@ -1,6 +1,6 @@
 <template>
-  <header class="mt-10 font-black text-5xl">
-    <h1 class="lowercase sm:text-4xl text-white">{{ msg }}</h1>
+  <header class="mt-10 sm:mt-1 font-bold text-6xl sm:text-4xl">
+    <h1 class="lowercase  text-white">{{ msg }}</h1>
   </header>
 </template>
 
@@ -15,6 +15,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+header {
+  text-shadow: 1px 1px 8px lightgray;
+}
+
 </style>
 
 
