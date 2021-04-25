@@ -50,7 +50,7 @@ range html element, therefore I used plain css*/
   width: 80%;
   height: 0.8rem;
   border-radius: 2rem;
-  background: rgb(251, 207, 232);
+  background: rgba(75, 85, 99);
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;

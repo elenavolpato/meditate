@@ -1,51 +1,39 @@
 <template>
   <div class="h-screen grid">
-    <div
-      class="grid grid-cols-1 align-middle divide-dashed divide-y-2 divide-pink-300 container rounded-xl mx-auto my-auto p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden"
-      id="home"
-    >
-      <div>
-        <Header msg="meditation timer" />
-      </div>
-      <div
-        class="grid grid-cols-1 divide-dashed divide-y divide-purple-300 flex-shrink-0"
-      >
-        <Time @minutesSelected="updateMinutes" />
-        <div>
-          <Sound @bellSelected="updateBell" :bells="bells" />
-        </div>
-        <div>
-          <Interval
-            @selectedInterval="updateIntervals"
-            :numberOfBells="numberOfBells"
-          />
-        </div>
-        <div
-          class="text-xl leading-7 px-6 pb-1.5 text-center pt-6 font-thin text-gray-600"
-        >
-          <p v-if="selectedInterval!==1">
-            Meditate with
-            {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
-            {{ selectedInterval }} reminders.
-          </p>
-          <p v-else>
-            Meditate with
-            {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
-            1 reminder.
-          </p>
-          <button
-            class="text-xl font-semibold rounded-md bg-purple-400 focus:bg-purple-500 hover:bg-purple-500 text-white px-16 pt-3 pb-2 mt-4"
-            @click="goToMeditation"
-          >
-            Start
-          </button>
+    <div class="grid grid-cols-1 align-middle">
+      <Header msg="meditation timer" />
+      <div class="container rounded-xl mx-auto my-auto pt-0 p-4 bg-white bg-opacity-85 shadow-md max-w-md overflow-hidden" id="home">
+        <div class="grid grid-cols-1 divide-dashed divide-y divide-purple-300 flex-shrink-0">
+          <Time @minutesSelected="updateMinutes" />
+          <div>
+            <Sound @bellSelected="updateBell" :bells="bells" />
+          </div>
+          <div>
+            <Interval 
+              @selectedInterval="updateIntervals"
+              :numberOfBells="numberOfBells"
+            />
+          </div>
+          <div class="text-xl leading-7 px-6 pb-1.5 text-center pt-6 font-thin text-gray-600">
+            <p v-if="selectedInterval !== 1">
+              Meditate with
+              {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
+              {{ selectedInterval }} reminders.
+            </p>
+            <p v-else>
+              Meditate with
+              {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
+              1 reminder.
+            </p>
+            <button class="text-xl font-semibold rounded-md bg-purple-400 focus:bg-purple-500 hover:bg-purple-500 text-white px-16 pt-3 pb-2 mt-4" @click="goToMeditation">
+              Start
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  <Footer/>
+    <Footer />
   </div>
-
-  
 </template>
 
 <script>
@@ -115,6 +103,5 @@ export default defineComponent({
 </script>
 
 <style>
-
 </style>
 

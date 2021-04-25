@@ -1,19 +1,20 @@
 <template>
-  <header class="text-center lowercase text-3xl font-bold pt-2 px-2 pb-3 text-pink-500">
-    <div class="">
-      <h1> {{ msg }} </h1>
-    </div>
+  <header class="relative block h-0 object-center-bottom lowercase text-4xl font-bold text-white">
+    <h1 class="bottom-0 text-center">{{ msg }}</h1>
   </header>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
-export default defineComponent ({
+export default defineComponent({
   props: {
-    msg: String
-  }
-})
+    msg: String,
+  },
+});
 </script>
+
+<style scoped>
+</style>
 
 
