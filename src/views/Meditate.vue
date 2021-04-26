@@ -28,11 +28,9 @@
       </transition>
     </div>
     <div class="relative">
-      <router-link  to="/">
         <button @click="backHome" class="backButton font-bold text-2xl rounded-full shadow-lg px-8 py-2 "> 
           Back 
         </button>
-      </router-link>
     </div>
   </div>
 </template>
@@ -63,6 +61,7 @@ export default defineComponent({
       secs: intervalEndBells,
       isPlayed: false,
       finished: false,
+      countdownId: undefined,
       
     };
   },
@@ -106,14 +105,9 @@ export default defineComponent({
       if (this.elapsed === undefined) {
         this.sound.play();
       }
-      window.requestAnimationFrame(this.countdown);
+      this.countdownId = window.requestAnimationFrame(this.countdown);
       this.isPlayed = true;
-    },
-    setTimeout(timestamp) {
-      this.pausedTimestamp = timestamp;
-      window.cancelAnimationFrame(this.countdown);
-
-    },
+    },    
     pause() {
       this.sound.pause();
       this.isPlayed = false;
@@ -131,11 +125,11 @@ export default defineComponent({
             this.playIntervalBell();
             this.currentInterval++;
           }
-          window.requestAnimationFrame(this.countdown);
+          this.countdownId = window.requestAnimationFrame(this.countdown);
         } else {
           this.startTime = -1;
           this.finished = true;
-          window.requestAnimationFrame(this.endMeditation);
+          this.countdownId = window.requestAnimationFrame(this.endMeditation);
         }
       } else if (this.startTime !== -1) {
         this.totalElapsed = this.elapsed;
@@ -162,11 +156,15 @@ export default defineComponent({
           this.sound.play();
           this.secs = this.secs + intervalEndBells;
         }
-        window.requestAnimationFrame(this.endMeditation);
+        this.countdownId = window.requestAnimationFrame(this.endMeditation);
       }
     },
     backHome() {
-      window.cancelAnimationFrame(this.countdown);
+      window.cancelAnimationFrame(this.countdownId)
+      this.$router.push({
+        name: "Home",
+        params: {} 
+      })  
     }
   },
   
