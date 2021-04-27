@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen grid">
-    <div class="container max-w-lg mx-auto text-center content-center max-h-full sm:max-h-screen ">
+    <div class="container max-w-lg mx-auto text-center content-center max-h-full">
       <Header msg="meditation timer" />
       <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 pt-0 p-4 bg-gray-200 bg-opacity-50 shadow overflow-hidden" id="home">
         <div class="grid grid-cols-1 text-xl font-semibold leading-5 text-center text-gray-700">
@@ -14,7 +14,7 @@
               :numberOfBells="numberOfBells"
             />
           </div>
-          <div class="px-6 pb-1.5 pt-6">
+          <div class="px-6 pb-1.5 pt-6 font-bold text-white leading-6">
             <p v-if="selectedInterval !== 1">
               Meditate with
               {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
