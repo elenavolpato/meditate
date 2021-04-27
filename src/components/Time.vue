@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-6">
-    <div class="px-6 py-4 w-full">
+  <div class="pt-6 sm:pt-1.5">
+    <div class="px-6 py-4 sm:p-2 w-full">
       <label for="time">How long would you like to meditate?</label>
       <input
         @change="updateMinutes"

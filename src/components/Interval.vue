@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-xl leading-5 pt-6 pb-6 relative"
+    class="leading-5 py-6 sm:py-3 relative"
   >
     <label for="number-bells-select" class="mr-4">Reminder bells?</label>
     <div class="relative inline-flex">

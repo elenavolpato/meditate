@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-col-1 w-full py-6">
+  <div class="grid grid-col-1 w-full sm:p-2 py-6">
     <p>Select a bell sound</p>
     <div class="grid grid-col-1 mx-auto">
       <button
-        class=" z-20 text-md w-56 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 active:bg-opacity-20 hover:bg-opacity-20 py-3 px-0 mt-5"
+        class="z-20 text-md w-56 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 active:bg-opacity-20 hover:bg-opacity-20 py-3 sm:py-2 px-0 mt-5 sm:mt-3"
         v-for="(bell, id) in bells"
         :key="id"
       >
