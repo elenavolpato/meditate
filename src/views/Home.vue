@@ -15,15 +15,10 @@
             />
           </div>
           <div class="px-6 pb-1.5 pt-6 sm:pt-1.5 font-bold text-white leading-6">
-            <p v-if="selectedInterval !== 1">
+            <p>
               Meditate with
-              {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
-              {{ selectedInterval }} reminders.
-            </p>
-            <p v-else>
-              Meditate with
-              {{ bells[selectedBell].name }} bell for {{ minutes }} minutes with
-              1 reminder.
+              {{ bells[selectedBell].name }} bell for {{ minutes }} minute{{ (minutes > 1)?"s":"" }} with
+              {{ selectedInterval }} reminder{{ (selectedInterval !== 1)?"s":"" }}.
             </p>
             <button class="font-bold sm:font-semibold text-2xl sm:text-xl rounded-full shadow-lg text-gray-600 bg-gray-100 px-10 sm:px-8 py-3 sm:py-2 my-5 sm:my-3" @click="goToMeditation">
               Start
