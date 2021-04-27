@@ -70,7 +70,6 @@ export default defineComponent({
       isPlayed: false,
       finished: false,
       countdownId: undefined,
-      
     };
   },
   mounted() {
@@ -79,7 +78,7 @@ export default defineComponent({
       this.totalTime === undefined ||
       this.selectedlInterval === undefined
     ) {
-      this.totalTime = 0.2 * 60000;
+      this.totalTime = 5 * 60000;
       this.selectedBell = 2;
       
       
