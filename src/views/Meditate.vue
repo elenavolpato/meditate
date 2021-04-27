@@ -9,7 +9,7 @@
     >
       Your browser does not support the audio element.
     </audio>
-      <div class="relative content-center with-glow text-7xl text-white font-bold mb-36">
+      <div class="relative content-center text-7xl text-white font-bold mb-36">
         <!-- <transition leave-active-class="animate-fade-out" enter-active-class="animate-fade-in"> -->
           <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
           <div v-else-if="!finished">{{ prettyTime }}</div>
@@ -27,7 +27,7 @@
       </div>
     <div class="static inset-y-0" v-show="!finished">
       <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in" class="" >
-        <button key="pause" v-if="isPlayed" @click="pause" class="w-16 h-16 ">
+        <button key="pause" v-if="isPlayed" @click="pause" class="w-16 h-16">
           <img src="/noun_Stop_559095.svg" alt="pause button" />
         </button>
         <button key="play" v-else @click="play" >
@@ -35,8 +35,8 @@
         </button>
       </transition>
     </div>
-    <div class="absolute bottom-7 inset-x-0">
-        <button @click="backHome" class=" absolute bottom-0 backButton font-bold text-2xl rounded-full shadow-lg px-8 py-2 "> 
+    <div class="absolute bottom-16 inset-x-0">
+        <button @click="backHome" class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25  mt-3"> 
           Back 
         </button>
     </div>
@@ -181,29 +181,7 @@ export default defineComponent({
 
 <style scoped>
 
-.backButton {
-  position: relative;
-  border: none;
-  background: none;
-  outline: none;
-  color: black;
-  mix-blend-mode: screen;
-}
 
-.backButton::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: white;
-  border-radius: 2rem;
-  content: '';
-  mix-blend-mode: color-burn;
-}
-.with-glow{
-  text-shadow: 1px 1px 5px lightgray;
-}
 
 </style>
 

@@ -1,7 +1,9 @@
 <template>
   <header class="mt-10 sm:mt-1 font-bold text-6xl sm:text-4xl">
     <h1 class="lowercase  text-white">{{ msg }}</h1>
+    
   </header>
+
 </template>
 
 <script>

@@ -30,12 +30,12 @@
         </option>
       </select>
     </div>
-    <div id="what-is" class="absolute top-6 right-2 w-8 h-8">
+    <div id="what-is" class="absolute top-6 sm:top-3 right-2 sm:right-4 w-8 sm:w-6 opacity-80 ">
       <div v-if="!helpText" @click="mouseEnter"> 
-        <img src='/noun_Question_1955781.svg' alt='question icon'/>
+        <img src='/noun_Question_1955781.svg' alt='question icon - by Adrien Coquet from the Noun Project'/>
       </div>
       <div v-else @click="mouseEnter">
-        <img src='/noun_wrong_1890786.svg' alt='close icon'/> 
+        <img src='/noun_wrong_1890786.svg' alt='close icon - by Alice Design from the Noun Project'/> 
       </div>
     </div>
     <transition enter-active-class="animate-fade-in-down" leave-active-class="animate-fade-out-up">

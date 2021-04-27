@@ -2,7 +2,8 @@
   <div class="h-screen grid">
     <div class="container max-w-lg mx-auto text-center content-center max-h-screen ">
       <Header msg="meditation timer" />
-      <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-200 bg-opacity-50 shadow" id="home">
+      <AboutButton /> 
+      <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-300 bg-opacity-40 shadow" id="home">
         <div class="grid grid-cols-1 text-xl sm:text-lg font-semibold leading-5 text-center text-gray-700">
           <Time @minutesSelected="updateMinutes" />
           <div>
@@ -37,6 +38,7 @@ import Sound from "../components/Sound.vue";
 import Time from "../components/Time.vue";
 import Footer from "../components/Footer.vue";
 import Interval from "../components/Interval.vue";
+import AboutButton from "../components/AboutButton.vue";
 import { defineComponent } from "vue";
 
 /* make it save the state locally for future meditations 
@@ -54,6 +56,7 @@ export default defineComponent({
     Time,
     Interval,
     Footer,
+    AboutButton,
   },
 
   data() {
