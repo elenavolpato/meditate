@@ -1,5 +1,5 @@
 <template>
-  <div class="z-10 text-center sm:mt-24 pt-24 h-screen"> 
+  <div class="z-10 text-center  "> 
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -21,9 +21,7 @@
               <p >You meditated for 1 minute. </p>
             </div>
           </div>
-        
       </div>
-    
     <div class="absolute bottom-16 inset-x-0">
       <div class="inset-0 sm:mb-5 mb-36" v-show="!finished">
         <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in" class="" >
@@ -35,7 +33,7 @@
           </button>
         </transition>
       </div>
-      <button @click="backHome" class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25  mt-3"> 
+      <button @click="backHome" class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 mt-3"> 
         Back 
       </button>
     </div>
