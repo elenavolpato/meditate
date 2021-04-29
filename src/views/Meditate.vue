@@ -1,6 +1,5 @@
 <template>
   <div class="z-10 text-center sm:mt-24 pt-24 h-screen"> 
-    <canvas width="2" height="2"></canvas>
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"

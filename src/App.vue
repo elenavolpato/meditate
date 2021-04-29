@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="z-10 flex items-center justify-center inset-0 h-screen "
+    class="z-10 flex items-center justify-center inset-0 h-screen"
     id="app">
     <canvas width="2" height="2"></canvas>
     <router-view />
@@ -62,12 +62,21 @@ export default defineComponent({
 
 <style>
 
+body {
+  margin: 0;
+  width: 100%;
+}
+
 canvas {
   width: 100%;
   height: 100%;
   transform: scale(2);
   z-index:-1;
-  position: absolute;
+  display:block;
+  position: fixed;  
+  top:0;
+  left: 0;
+ 
 } 
 
 
