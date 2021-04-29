@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="z-10 absolute inset-0 h-screen overflow-hidden"
+    class="z-10 flex items-center justify-center inset-0 h-screen overflow-hidden"
     id="app">
     <canvas width="2" height="2"></canvas>
     <router-view />
