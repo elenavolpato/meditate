@@ -1,5 +1,5 @@
 <template>
-<div class="sm:overflow-y-scroll mb-10">
+<div class="mb-10">
     <div class="container max-w-lg mx-auto mt-10 sm:mt-2 text-center content-center max-h-screen">
         <div class=" rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-400 bg-opacity-40 shadow m-5">
             <div class=" mx-3 my-3 text-xl sm:text-base font-medium text-white mt-5 text-left">
