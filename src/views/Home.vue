@@ -87,7 +87,6 @@ export default defineComponent({
     },
     updateBell(event) {
       this.selectedBell = event;
-      console.log(this.bells[event].name);
     },
     updateMinutes(event) {
       this.minutes = event;

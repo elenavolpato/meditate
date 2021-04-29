@@ -78,14 +78,11 @@ export default defineComponent({
       this.totalTime === undefined ||
       this.selectedlInterval === undefined
     ) {
-      this.totalTime = 5 * 60000;
-      this.selectedBell = 2;
-      
-      
+      this.totalTime = 0.1 * 60000;
+      this.selectedBell = 1;      
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
-    console.log(this.selectedlInterval);
  },
 
   computed: {
@@ -153,7 +150,7 @@ export default defineComponent({
     endMeditation(timestamp) {
       if (this.startTime == -1) {
         this.startTime = timestamp;
-        this.sound.currentTime = 0;
+        this.sound.currentTime = 0.4;
         this.sound.play();
       }
       this.elapsed = timestamp - this.startTime;
