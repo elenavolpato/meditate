@@ -8,6 +8,9 @@ module.exports = {
       'lg': { 'max': '1023px' },
       'md': { 'max': '767px' },
       'sm': { 'max': '639px' },
+      'xsm':{ 'max': '375px'},
+      
+
     },
     fontFamily: {
       'sans': ['Nunito', 'Arial', 'sans-serif'],
