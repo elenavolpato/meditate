@@ -4,12 +4,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "https-preview": "serve dist"
   },
   "dependencies": {
     "@headlessui/vue": "^1.0.0",
-    "@heroicons/vue": "^1.0.1",
-    "feather-icons-vue": "^1.0.4",
     "sass": "^1.32.8",
     "vue": "^3.0.5",
     "vue-router": "^4.0.6",
@@ -20,8 +19,10 @@
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.5",
+    "https-localhost": "^4.6.4",
     "postcss": "^8.2.10",
     "tailwindcss": "^2.1.1",
-    "vite": "^2.1.5"
+    "vite": "^2.1.5",
+    "vite-plugin-pwa": "^0.7.3"
   }
 }

@@ -10,6 +10,7 @@
         <div class="select-none">
           <audio :id="`bell-${id}`">
             <source :src="`/bell-${id}.wav`" type="audio/wav" />
+            <source :src="`/bell-${id}.mp3`" type="audio/mp3" />
             Your browser does not support the audio element.
           </audio>
           <div id="bells" @click="playBell(id)">
