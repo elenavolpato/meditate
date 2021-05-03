@@ -26,7 +26,7 @@ Pixel.prototype.render = function (ctx) {
   ctx.fillStyle = "hsl(" + hue + ", 100%, 50% )";
   ctx.fillRect(this.x, this.y, 1, 1);
 };
-
+/* 
 const store = new Vuex.Store({
   state: {
     //count: 0
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
       //state.count++
     //}
   //}
-})
+}) */
 
 
 export default defineComponent({
