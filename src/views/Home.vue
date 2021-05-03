@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen grid">
+  <div class="grid">
     <div class="container max-w-lg mx-auto text-center content-center max-h-screen">
       <Header msg="meditation timer" />
       <AboutButton /> 
