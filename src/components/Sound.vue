@@ -8,7 +8,7 @@
         :key="id"
       >
         <div class="select-none">
-          <audio :id="`bell-${id}`">
+          <audio :id="`bell-${id}`" preload="auto">
             <source :src="`/bell-${id}.wav`" type="audio/wav" />
             <source :src="`/bell-${id}.mp3`" type="audio/mp3" />
             Your browser does not support the audio element.

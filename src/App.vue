@@ -27,11 +27,23 @@ Pixel.prototype.render = function (ctx) {
   ctx.fillRect(this.x, this.y, 1, 1);
 };
 
+const store = new Vuex.Store({
+  state: {
+    //count: 0
+  },
+  mutations: {},
+    // increment (state) {
+      //state.count++
+    //}
+  //}
+})
+
+
 export default defineComponent({
   name: "App",
+  //background animation data
   data(){
     return {
-      //background animation data
       canvas: undefined,
       ctx: undefined,
       pixels: [

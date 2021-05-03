@@ -23,13 +23,13 @@
           </div>
       </div>
     <div class="absolute bottom-16 inset-x-0">
-      <div class="inset-0 sm:mb-5 mb-36" v-show="!finished">
+      <div class="inset-0 sm:mb-5 mb-36"  v-show="!finished">
         <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in" class="" >
-          <button key="pause" v-if="isPlayed" @click="pause" class="w-10 h-10">
-            <img src="/noun_Stop_559095.svg" alt="pause button" />
+          <button key="pause" preload="auto" v-if="isPlayed" @click="pause" class="w-10 h-10">
+            <img src="/noun_Stop_559095.svg" alt="pause" />
           </button>
-          <button key="play" v-else @click="play" >
-            <img src="/noun_play_559093.svg" alt="play button" class="w-10 h-10" />
+          <button key="play" preload="auto" v-else @click="play" >
+            <img src="/noun_play_559093.svg" alt="play" class="w-10 h-10" />
           </button>
         </transition>
       </div>
@@ -140,7 +140,7 @@ export default defineComponent({
     },
     //plays bells in between
     playIntervalBell() {
-      this.sound.currentTime = 0.2;
+      this.sound.currentTime = 0;
       this.sound.play();
     },
     //bell plays 2 times at the end
