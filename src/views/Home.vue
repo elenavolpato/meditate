@@ -5,21 +5,18 @@
       <AboutButton /> 
       <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-300 bg-opacity-40 shadow" id="home">
         <div class="grid grid-cols-1 text-xl sm:text-lg font-semibold leading-5 text-center text-gray-700">
-          <Time @minutesSelected="updateMinutes" />
+          <Time />
           <div>
-            <Sound @bellSelected="updateBell" :bells="bells" />
+            <Sound :bells="bells" />
           </div>
           <div>
-            <Interval 
-              @selectedInterval="updateIntervals"
-              :numberOfBells="numberOfBells"
-            />
+            <Interval :numberOfBells="numberOfBells"/>
           </div>
           <div class="px-6 pb-1.5 pt-6 sm:pt-1.5 font-bold text-white leading-6">
             <p>
               Meditate with
               {{ bells[selectedBell].name }} bell for {{ minutes }} minute{{ (minutes > 1)?"s":"" }} with
-              {{ selectedInterval }} reminder{{ (selectedInterval !== 1)?"s":"" }}.
+              {{ reminders }} reminder{{ (reminders !== 1)?"s":"" }}.
             </p>
             <button class="font-bold sm:font-semibold text-2xl sm:text-xl rounded-full shadow-lg text-gray-600 bg-gray-100 px-10 sm:px-8 py-3 sm:py-2 my-5 sm:my-3" @click="goToMeditation">
               Start
@@ -39,6 +36,7 @@ import Time from "../components/Time.vue";
 import Footer from "../components/Footer.vue";
 import Interval from "../components/Interval.vue";
 import AboutButton from "../components/AboutButton.vue";
+import { mapState } from 'vuex';
 import { defineComponent } from "vue";
 
 /* make it save the state locally for future meditations 
@@ -61,18 +59,20 @@ export default defineComponent({
 
   data() {
     return {
-      icons: ["🦆", "🦆", "🦆"],
       bells: [
         { name: "bright sound", id: 0 },
         { name: "deep sound", id: 1 },
         { name: "solemn sound", id: 2 },
       ],
-      selectedBell: 0,
       numberOfBells: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      minutes: 32,
-      selectedInterval: 0,
     };
   },
+
+  computed: mapState([
+    'minutes',
+    'selectedBell',
+    'reminders',
+  ]),
 
   methods: {
     goToMeditation() {
@@ -81,18 +81,9 @@ export default defineComponent({
         params: {
           time: this.minutes,
           bell: this.selectedBell,
-          interval: this.selectedInterval,
+          interval: this.reminders,
         },
       });
-    },
-    updateBell(event) {
-      this.selectedBell = event;
-    },
-    updateMinutes(event) {
-      this.minutes = event;
-    },
-    updateIntervals(event) {
-      this.selectedInterval = event;
     },
   },
 });

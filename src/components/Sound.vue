@@ -13,7 +13,7 @@
             <source :src="`/bell-${id}.mp3`" type="audio/mp3" />
             Your browser does not support the audio element.
           </audio>
-          <div id="bells" @click="playBell(id)">
+          <div @click="playBell(id)">
             {{ bell.name }}
           </div>
         </div>
@@ -30,24 +30,33 @@ export default defineComponent({
     msg: String,
     bells: Array,
   },
-  emits: ["bellSelected"],
-  data() {
+   data() {
     return {
-      selectedBellAudio: null,
+      bellAudio: null,
     };
+  }, 
+  computed: {
+    selectedBell: {
+      get () {
+        return this.$store.state.selectedBell;
+      },
+      set (selectedBell) {
+        this.$store.commit('setBell', selectedBell);
+      },
+    }
   },
   methods: {
-    playBell(selectedBellId) {
-      if (this.selectedBellAudio !== null) {
-        this.selectedBellAudio.pause();
-        this.selectedBellAudio.currentTime = 0;
+    playBell(selectedBell) {
+      if (this.bellAudio !== null) {
+        this.bellAudio.pause();
+        this.bellAudio.currentTime = 0;
       }
-      this.selectedBellAudio = document.getElementById(`bell-${selectedBellId}`);
-      this.selectedBellAudio.play();
-      this.$emit("bellSelected", selectedBellId);
+      this.bellAudio = document.getElementById(`bell-${selectedBell}`);
+      this.bellAudio.play();
+      this.selectedBell = selectedBell;
     },
     selectedButton(x) {
-      x = this.selectedBellAudio;
+      x = this.bellAudio;
       if (x !== null) {
         return x;
       }

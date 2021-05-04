@@ -3,7 +3,6 @@
     <div class="px-6 py-4 sm:p-2 w-full">
       <label for="time">How long would you like to meditate?</label>
       <input
-        @change="updateMinutes"
         type="range"
         v-model="minutes"
         min="1"
@@ -25,18 +24,20 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {},
-  emits: ["minutesSelected"],
   data() {
     return {
-      minutes: 32,
       slider: "",
     };
   },
-  methods: {
-    updateMinutes() {
-      this.$emit("minutesSelected", this.minutes);
-      console.log(this.minutes);
-    },
+  computed: {
+    minutes: {
+      get () {
+        return this.$store.state.minutes;
+      },
+      set (minutes) {
+        this.$store.commit('setMinutes', minutes)
+      }
+    }
   },
 });
 </script> 

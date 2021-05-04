@@ -10,6 +10,7 @@
 <script>
 import { defineComponent } from "vue";
 
+
 //background animation functions 
 const Pixel = function(x, y) {
   this.x = x;
@@ -26,18 +27,6 @@ Pixel.prototype.render = function (ctx) {
   ctx.fillStyle = "hsl(" + hue + ", 100%, 50% )";
   ctx.fillRect(this.x, this.y, 1, 1);
 };
-/* 
-const store = new Vuex.Store({
-  state: {
-    //count: 0
-  },
-  mutations: {},
-    // increment (state) {
-      //state.count++
-    //}
-  //}
-}) */
-
 
 export default defineComponent({
   name: "App",

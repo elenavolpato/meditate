@@ -18,8 +18,7 @@
       <select
         id="number-bells-select"
         class="align-center border text-middle rounded-full text-gray-600 h-8 pl-2 pr-6 bg-white hover:border-gray-400 appearance-none"
-        @change="updateIntervals"
-        v-model="selectedNumberofBells"
+        v-model="reminders"
       >
         <option
           :value="numberOfBell"
@@ -59,28 +58,25 @@ export default defineComponent({
   props: {
     numberOfBells: Array,
   },
-
-  emits: ["selectedInterval"],
-
   data() {
     return {
-      selectedNumberofBells: 0,
       helpText: false,
     };
   },
-
+  computed: {
+    reminders: {
+      get () {
+        return this.$store.state.reminders;
+      },
+      set (reminders) {
+        this.$store.commit('setReminders', reminders)
+      }
+    }
+  },
   methods: {
-    updateIntervals() {
-      this.$emit("selectedInterval", this.selectedNumberofBells);
-    },
     mouseEnter() {
       this.helpText = !this.helpText;
     },
   },
 });
 </script> 
-
-
-<style>
-
-</style>

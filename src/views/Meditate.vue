@@ -1,5 +1,5 @@
 <template>
-  <div class="z-10 text-center"> 
+  <div class="z-10 text-center">
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -8,33 +8,46 @@
     >
       Your browser does not support the audio element.
     </audio>
-      <div class="relative content-center text-7xl text-white font-bold mb-36">
-          <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
-          <div v-else-if="!finished">{{ prettyTime }}</div>
-          <div v-else class="text-3xl animate-fade-in">          
-            <div v-if="time > 1">
-              <p class="mb-2 animate-fade-in">Congratulations!</p>
-              <p>You meditated for {{ time }} minutes.</p>
-            </div>
-            <div v-else>
-              <p class="mb-2 ">Congratulations!</p>
-              <p >You meditated for 1 minute. </p>
-            </div>
-          </div>
+    <div class="relative content-center text-7xl text-white font-bold mb-36">
+      <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
+      <div v-else-if="!finished">{{ prettyTime }}</div>
+      <div v-else class="text-3xl animate-fade-in">
+        <div>
+          <p class="mb-2 animate-fade-in">Congratulations!</p>
+          <p>
+            You meditated for {{ time }} minute{{ (time > 1) ? "s" : ""}}
+            today.
+          </p>
+        </div>
       </div>
+    </div>
     <div class="absolute bottom-16 inset-x-0">
-      <div class="inset-0 sm:mb-5 mb-36"  v-show="!finished">
-        <transition enter-active-class="animate-fade-in" leave-active-class="animate-fade-out" mode="out-in" class="" >
-          <button key="pause" preload="auto" v-if="isPlayed" @click="pause" class="w-10 h-10">
+      <div class="inset-0 sm:mb-5 mb-36" v-show="!finished">
+        <transition
+          enter-active-class="animate-fade-in"
+          leave-active-class="animate-fade-out"
+          mode="out-in"
+          class=""
+        >
+          <button
+            key="pause"
+            preload="auto"
+            v-if="isPlayed"
+            @click="pause"
+            class="w-14"
+          >
             <img src="/noun_Stop_559095.svg" alt="pause" />
           </button>
-          <button key="play" preload="auto" v-else @click="play" >
-            <img src="/noun_play_559093.svg" alt="play" class="w-10 h-10" />
+          <button key="play" preload="auto" v-else @click="play">
+            <img src="/noun_play_559093.svg" alt="play" class="w-14" />
           </button>
         </transition>
       </div>
-      <button @click="backHome" class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 mt-3"> 
-        Back 
+      <button
+        @click="backHome"
+        class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 mt-3"
+      >
+        Back
       </button>
     </div>
   </div>
@@ -76,11 +89,11 @@ export default defineComponent({
       this.selectedlInterval === undefined
     ) {
       this.totalTime = 5 * 60000;
-      this.selectedBell = 1;      
+      this.selectedBell = 1;
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
- },
+  },
 
   computed: {
     prettyTime() {
@@ -109,7 +122,7 @@ export default defineComponent({
       }
       this.countdownId = window.requestAnimationFrame(this.countdown);
       this.isPlayed = true;
-    },    
+    },
     pause() {
       this.sound.pause();
       this.isPlayed = false;
@@ -162,14 +175,13 @@ export default defineComponent({
       }
     },
     backHome() {
-      window.cancelAnimationFrame(this.countdownId)
+      window.cancelAnimationFrame(this.countdownId);
       this.$router.push({
         name: "Home",
-        params: {} 
-      })  
-    }
+        params: {},
+      });
+    },
   },
-  
 });
 </script>
 
