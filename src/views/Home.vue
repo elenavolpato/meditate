@@ -18,7 +18,7 @@
               {{ bells[selectedBell].name }} bell for {{ minutes }} minute{{ (minutes > 1)?"s":"" }} with
               {{ reminders }} reminder{{ (reminders !== 1)?"s":"" }}.
             </p>
-            <button class="font-bold sm:font-semibold text-2xl sm:text-xl rounded-full shadow-lg text-gray-600 bg-gray-100 px-10 sm:px-8 py-3 sm:py-2 my-5 sm:my-3" @click="goToMeditation">
+            <button class="font-bold sm:font-semibold text-2xl sm:text-xl rounded-full shadow-lg bg-gray-100 bg-opacity-10 border-gray-50 border border-opacity-40 px-10 sm:px-8 py-3 sm:py-2 my-5 sm:my-3 focus:bg-opacity-60  focus:text-gray-600" @click="goToMeditation">
               Start
             </button>
           </div>

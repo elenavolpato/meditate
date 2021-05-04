@@ -21,8 +21,8 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-16 inset-x-0">
-      <div class="inset-0 sm:mb-5 mb-36" v-show="!finished">
+    <div class="absolute bottom-10 inset-x-0">
+      <div class="relative bottom-64 sm:bottom-20 sm:mb-5 " v-show="!finished">
         <transition
           enter-active-class="animate-fade-in"
           leave-active-class="animate-fade-out"
@@ -45,7 +45,7 @@
       </div>
       <button
         @click="backHome"
-        class="text-md w-24 h-10 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 mt-3"
+        class="text-xl px-6 py-2 text-center font-semibold rounded-3xl shadow-lg bg-gray-100 bg-opacity-10 border-gray-50 border border-opacity-40 text-white 5 mt-3"
       >
         Back
       </button>

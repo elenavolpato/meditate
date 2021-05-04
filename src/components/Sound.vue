@@ -3,7 +3,8 @@
     <p>Select a bell sound</p>
     <div class="grid grid-col-1 mx-auto">
       <button
-        class="z-20 text-md w-56 text-center font-semibold rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 active:bg-opacity-20 hover:bg-opacity-20 py-3 sm:py-2 px-0 mt-5 sm:mt-3"
+        class="z-20 text-md w-56 text-center font-semibold  rounded-3xl border border-gray-50 border-opacity-25 shadow-lg text-white bg-white bg-opacity-25 active:bg-opacity-20 py-3 sm:py-2 px-0 mt-5 sm:mt-3 active:bg-opacity-80 active:text-gray-600"
+        :class="{'bg-opacity-80 text-gray-600': selectedBell===id}"
         v-for="(bell, id) in bells"
         :key="id"
       >
@@ -64,4 +65,10 @@ export default defineComponent({
   },
 });
 </script> 
+<style  scoped>
+.sounds :is(:active, ::after) {
+  background-color: hotpink;
 
+}
+
+</style>
