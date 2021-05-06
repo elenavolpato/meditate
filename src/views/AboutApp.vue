@@ -1,6 +1,6 @@
 <template>
-<div class="mb-10">
-    <div class="container max-w-lg mt-10 sm:mt-2 text-center content-center">
+<div class="z-10">
+    <div class="container max-w-lg sm:max-h-screen mt-10 sm:mt-5 text-center">
         <div class="rounded-3xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-400 bg-opacity-40 shadow m-5">
             <div class="mx-3 my-5 text-xl sm:text-base font-medium text-white text-left">
                 <p class="mt-3"> This <strong>meditation timer</strong> is a free open source app with customizable features beyond the time duration of your meditation session: there are three options for the Tibetan Bell sound and there is also the option to have reminders sounds along your meditation. In the end, by default, three bells are played.</p>
