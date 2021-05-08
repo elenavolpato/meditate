@@ -1,5 +1,8 @@
 <template>
   <div class="z-10 text-center">
+    <!-- <video controls="z-0 controls" autoplay="autoplay" loop="loop" class="absolute ">
+      <source src="/meditate.mp4" type="video/mp4">
+    </video> -->
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -15,31 +18,33 @@
         <div>
           <p class="mb-2 animate-fade-in">Congratulations!</p>
           <p>
-            You meditated for {{ time }} minute{{ (time > 1) ? "s" : ""}}
+            You meditated for {{ time }} minute{{ time > 1 ? "s" : "" }}
             today.
           </p>
         </div>
       </div>
     </div>
     <div class="absolute bottom-10 inset-x-0">
-      <div class="relative bottom-64 sm:bottom-20 sm:mb-5 " v-show="!finished">
+      <div class="relative bottom-64 sm:bottom-20 sm:mb-5" v-show="!finished">
         <transition
           enter-active-class="animate-fade-in"
           leave-active-class="animate-fade-out"
           mode="out-in"
-          class=""
         >
           <button
             key="pause"
             preload="auto"
             v-if="isPlayed"
-            @click="pause"
-            class="w-14"
-          >
-            <img src="/noun_Stop_559095.svg" alt="pause" />
+            @click="pause">
+            <img src="/noun_Stop_559095.svg" alt="pause" class="w-14" />
           </button>
-          <button key="play" preload="auto" v-else @click="play">
+          <button 
+            key="play" 
+            preload="auto" 
+            v-else 
+            @click="play">
             <img src="/noun_play_559093.svg" alt="play" class="w-14" />
+            
           </button>
         </transition>
       </div>
@@ -58,6 +63,7 @@ const numEndBells = 3;
 const intervalEndBells = 3500;
 
 import { defineComponent } from "vue";
+import NoSleep from 'nosleep.js';
 
 export default defineComponent({
   name: "meditate",
@@ -80,6 +86,8 @@ export default defineComponent({
       isPlayed: false,
       finished: false,
       countdownId: undefined,
+      //screen wake lock
+      noSleep: new NoSleep(),
     };
   },
   mounted() {
@@ -119,7 +127,9 @@ export default defineComponent({
     play() {
       if (this.elapsed === undefined) {
         this.sound.play();
+        
       }
+      this.noSleep.enable();
       this.countdownId = window.requestAnimationFrame(this.countdown);
       this.isPlayed = true;
     },
@@ -173,9 +183,11 @@ export default defineComponent({
         }
         this.countdownId = window.requestAnimationFrame(this.endMeditation);
       }
+      this.noSleep.disable();
     },
     backHome() {
       window.cancelAnimationFrame(this.countdownId);
+      this.noSleep.disable();
       this.$router.push({
         name: "Home",
         params: {},

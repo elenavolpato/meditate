@@ -16,6 +16,10 @@ export default defineConfig({
           "description": "The perfect timer to keep track of your meditation.",
           "background_color": "#610c8c",
       },
-    })
+      /* workbox: {
+
+      } */
+    }),
+    
   ]
 })

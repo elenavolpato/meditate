@@ -1,6 +1,7 @@
 <template>
   <div class="grid">
     <div class="container max-w-lg mx-auto text-center content-center max-h-screen">
+      
       <Header msg="meditation timer" />
       <AboutButton /> 
       <div class="rounded-2xl border-2 border-gray-50 border-opacity-25 max-w-full my-auto sm:mx-2 sm:my-0 pt-0 p-4 sm:p-1 bg-gray-300 bg-opacity-40 shadow" id="home">
@@ -73,6 +74,10 @@ export default defineComponent({
     'selectedBell',
     'reminders',
   ]),
+
+  beforeMount () {
+    console.log('wakeLock' in navigator)
+  },
 
   methods: {
     goToMeditation() {
