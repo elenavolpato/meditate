@@ -3,14 +3,17 @@ This meditation timer has customizable features beyond the time duration of your
 
 Some features are still a work in progress, such as: saving all the time you meditated and a gamification for milestones in your total time meditated.
 
-Check out [my page](https://www.elenavolpato.me/) for more informayion about my work. I write about my learning process and my projects.
+You can use the app [here.](https://meditate.elenavolpato.me/) 
 
-You can use the app [here](https://meditate.elenavolpato.me/) 
+Check out [my page](https://www.elenavolpato.me/) for more informayion about my work. I write about my learning process and my projects.
 
 
 ###  credits  
 
 This app was made using Vite, Vue3, Vuex and tailwind CSS. 
+
 I also used [NoSleep.js](https://github.com/richtr/NoSleep.js/) library and [persistedstate](https://reposhub.com/vuejs/vuex-utilities/robinvdvleuten-vuex-persistedstate.html) plugin.
+
 The bells are all from: https://freesound.org/
-[Background animation](https://codepen.io/desandro/pen/BzJkQv) by [deSandro](https://github.com/desandro). 
+
+Background animation by [deSandro](https://codepen.io/desandro/pen/BzJkQv). 
