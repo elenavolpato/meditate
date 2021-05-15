@@ -1,7 +1,7 @@
 <template>
   <Suspense>
     <template #default>
-  <div class="z-10 text-center">s
+  <div class="z-10 text-center">
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
