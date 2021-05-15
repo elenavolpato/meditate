@@ -1,6 +1,4 @@
 <template>
-  <Suspense>
-    <template #default>
   <div class="z-10 text-center">
     <audio
       id="meditationSound"
@@ -34,14 +32,16 @@
             key="pause"
             preload="auto"
             v-if="isPlayed"
-            @click="pause">
+            @click="pause"
+            >
             <img src="/noun_Stop_559095.svg" alt="pause" class="w-14" />
           </button>
           <button 
             key="play" 
             preload="auto" 
             v-else 
-            @click="play">
+            @click="play"
+            >
             <img src="/noun_play_559093.svg" alt="play" class="w-14" />
             
           </button>
@@ -55,11 +55,6 @@
       </button>
     </div>
   </div>
-</template>
-  <template #fallback>
-    <Loading />
-  </template>
-  </Suspense>
 </template>
 
 <script>
@@ -105,6 +100,7 @@ export default defineComponent({
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
+    document.addEventListener('keydown', this.spaceBar);
   },
 
   computed: {
@@ -114,7 +110,7 @@ export default defineComponent({
   },
 
   methods: {
-    //conver milliseconds do minutes and seconds
+    //convert milliseconds do minutes and seconds
     convertMinutes(milliseconds) {
       let minutes = Math.floor(milliseconds / 60000);
       let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
@@ -140,6 +136,14 @@ export default defineComponent({
     pause() {
       this.sound.pause();
       this.isPlayed = false;
+    },
+    spaceBar(e){
+      if(e.key === " " && this.isPlayed) {
+        return this.pause()
+      }else if (e.key === " " && !this.isPlayed){
+        return this.play()
+      }
+      console.log(e);
     },
 
     //timer setup
