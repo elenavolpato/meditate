@@ -1,8 +1,7 @@
 <template>
-  <div class="z-10 text-center">
-    <!-- <video controls="z-0 controls" autoplay="autoplay" loop="loop" class="absolute ">
-      <source src="/meditate.mp4" type="video/mp4">
-    </video> -->
+  <Suspense>
+    <template #default>
+  <div class="z-10 text-center">s
     <audio
       id="meditationSound"
       :src="`/bell-${selectedBell}.wav`"
@@ -56,6 +55,11 @@
       </button>
     </div>
   </div>
+</template>
+  <template #fallback>
+    <Loading />
+  </template>
+  </Suspense>
 </template>
 
 <script>
