@@ -20,11 +20,11 @@
             time meditated.
           </p>
           <p class="mt-4">
-            This app was built by Elena Volpato. Check out
+            This app was built by Elena Volpato. Check out          
             <a class="underline" href="https://www.elenavolpato.me/">
-              my page</a
+              elenavolpato.me</a
             >
-            for more informayion about my work. I write about my learning
+            for more information about my work. I write about my learning
             process and my projects.
           </p>
           <p class="mt-4">
@@ -35,8 +35,8 @@
               class="underline"
               href="https://gitlab.com/elena_volpato/meditate/-/issues/new"
               >here</a
-            >
-            (You'll need an account on gitlab to do so).
+            >.
+            (You'll need a gitlab account to do so).
           </p>
           <p class="mt-4">
             Background animation is<a
