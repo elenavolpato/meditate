@@ -75,10 +75,6 @@ export default defineComponent({
     'reminders',
   ]),
 
-  beforeMount () {
-    console.log('wakeLock' in navigator)
-  },
-
   methods: {
     goToMeditation() {
       this.$router.push({
