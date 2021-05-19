@@ -91,7 +91,15 @@ export default defineComponent({
     };
   },
 
+<<<<<<< HEAD
   computed: mapState(["minutes", "selectedBell", "reminders"]),
+=======
+  computed: mapState([
+    'minutes',
+    'selectedBell',
+    'reminders',
+  ]),
+>>>>>>> add-PWA
 
   methods: {
     goToMeditation() {
