@@ -1,11 +1,8 @@
 <template>
   <div class="z-10 text-center">
-    <audio
-      id="meditationSound"
-      :src="`/bell-${selectedBell}.wav`"
-      type="audio/wav"
-      ref="audioPlayer"
-    >
+    <audio id="meditationSound" preload="auto" ref="audioPlayer">
+      <source :src="`/bell-${selectedBell}.wav`" type="audio/wav" />
+      <source :src="`/bell-${selectedBell}.mp3`" type="audio/mp3" />
       Your browser does not support the audio element.
     </audio>
     <div class="relative content-center text-7xl text-white font-bold mb-36">
@@ -28,22 +25,11 @@
           leave-active-class="animate-fade-out"
           mode="out-in"
         >
-          <button
-            key="pause"
-            preload="auto"
-            v-if="isPlayed"
-            @click="pause"
-            >
+          <button key="pause" preload="auto" v-if="isPlayed" @click="pause">
             <img src="/noun_Stop_559095.svg" alt="pause" class="w-14" />
           </button>
-          <button 
-            key="play" 
-            preload="auto" 
-            v-else 
-            @click="play"
-            >
+          <button key="play" preload="auto" v-else @click="play">
             <img src="/noun_play_559093.svg" alt="play" class="w-14" />
-            
           </button>
         </transition>
       </div>
@@ -62,7 +48,7 @@ const numEndBells = 3;
 const intervalEndBells = 3500;
 
 import { defineComponent } from "vue";
-import NoSleep from 'nosleep.js';
+import NoSleep from "nosleep.js";
 
 export default defineComponent({
   name: "meditate",
@@ -100,7 +86,7 @@ export default defineComponent({
     }
     this.intervalTime = this.totalTime / this.selectedlInterval;
     this.sound = document.getElementById("meditationSound");
-    document.addEventListener('keydown', this.spaceBar);
+    document.addEventListener("keydown", this.spaceBar);
   },
 
   computed: {
@@ -127,7 +113,6 @@ export default defineComponent({
     play() {
       if (this.elapsed === undefined) {
         this.sound.play();
-        
       }
       this.noSleep.enable();
       this.countdownId = window.requestAnimationFrame(this.countdown);
@@ -137,11 +122,11 @@ export default defineComponent({
       this.sound.pause();
       this.isPlayed = false;
     },
-    spaceBar(e){
-      if(e.key === " " && this.isPlayed) {
-        return this.pause()
-      }else if (e.key === " " && !this.isPlayed){
-        return this.play()
+    spaceBar(e) {
+      if (e.key === " " && this.isPlayed) {
+        return this.pause();
+      } else if (e.key === " " && !this.isPlayed) {
+        return this.play();
       }
       console.log(e);
     },
