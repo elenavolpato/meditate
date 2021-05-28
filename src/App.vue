@@ -49,7 +49,7 @@ export default defineComponent({
       loaded: false
     }
   },
-  mounted() {
+  beforeCreate() {
     window.addEventListener('load', () => {
       this.loaded = true
       this.$nextTick(() => {
