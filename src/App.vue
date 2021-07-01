@@ -49,19 +49,19 @@ export default defineComponent({
       loaded: false
     }
   },
+  //loading sounds before the program appears 
   beforeCreate() {
     window.addEventListener('load', () => {
       this.loaded = true
       this.$nextTick(() => {
-      this.canvas = document.querySelector("canvas");
-      this.ctx = this.canvas.getContext("2d");
-      this.animate();
-
+        this.canvas = document.querySelector("canvas");
+        this.ctx = this.canvas.getContext("2d");
+        this.animate();
       })
     })
 
   },
-
+  //function for background animation
   methods: {
     animate() {
       this.pixels.forEach((pixel) => {
