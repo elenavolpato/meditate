@@ -33,10 +33,10 @@
           <p class="mt-4">
             If you have any ideas to share or found any bugs, write to me
             <strong> elena@raposinha.dev</strong> or you can report an issue on
-            gitlab page
+            my github page
             <a
               class="underline"
-              href="https://gitlab.com/elena_volpato/meditate/-/issues/new"
+              href="https://github.com/elenavolpato/meditate/issues/new"
               >here</a
             >. (You'll need a gitlab account to do so).
           </p>
