@@ -48,7 +48,7 @@
             @click="pause"
           >
             <img
-              src="stopIcon"
+              :src="stopIcon"
               alt="pause"
               class="w-14"
             />
@@ -60,7 +60,7 @@
             @click="play"
           >
             <img
-              src="playIcon"
+              :src="playIcon"
               alt="play"
               class="w-14"
             />
