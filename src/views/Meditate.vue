@@ -48,7 +48,7 @@
             @click="pause"
           >
             <img
-              src="${publicPath}noun_Stop_559095.svg"
+              src="stopIcon"
               alt="pause"
               class="w-14"
             />
@@ -60,7 +60,7 @@
             @click="play"
           >
             <img
-              src="${publicPath}noun_play_559093.svg"
+              src="playIcon"
               alt="play"
               class="w-14"
             />
@@ -127,6 +127,12 @@ export default defineComponent({
   computed: {
     prettyTime() {
       return this.convertMinutes((this.totalTime - this.elapsed).toFixed(0))
+    },
+    stopIcon() {
+      return `${import.meta.env.BASE_URL}noun_Stop_559095.svg`
+    },
+    playIcon() {
+      return `${import.meta.env.BASE_URL}noun_play_559093.svg`
     },
   },
 
