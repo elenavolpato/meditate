@@ -20,23 +20,25 @@
             time meditated.
           </p>
           <p class="mt-4">
-            This app was built by Elena Volpato. Check out          
-            <a class="underline" href="https://www.elenavolpato.me/">
-              elenavolpato.me</a
+            This app was built by Elena Volpato. Check out
+            <a
+              class="underline"
+              href="https://www.raposinha.dev/"
+            >
+              raposinha.dev</a
             >
             for more information about my work. I write about my learning
             process and my projects.
           </p>
           <p class="mt-4">
             If you have any ideas to share or found any bugs, write to me
-            <strong> talkto@elenavolpato.me</strong> or you can report an issue
-            on gitlab page
+            <strong> elena@raposinha.dev</strong> or you can report an issue on
+            gitlab page
             <a
               class="underline"
               href="https://gitlab.com/elena_volpato/meditate/-/issues/new"
               >here</a
-            >.
-            (You'll need a gitlab account to do so).
+            >. (You'll need a gitlab account to do so).
           </p>
           <p class="mt-4">
             Background animation is<a
@@ -60,22 +62,17 @@
       <Footer />
     </div>
   </div>
-</template> 
-    
+</template>
+
 <script>
-import { defineComponent } from "vue";
-import Footer from "../components/Footer.vue";
-import Loading from "../components/Loading.vue";
+import { defineComponent } from "vue"
+import Footer from "../components/Footer.vue"
+import Loading from "../components/Loading.vue"
 
 export default defineComponent({
   components: {
     Footer,
     Loading,
   },
-});
+})
 </script>
-
-
-
-<style>
-</style>
