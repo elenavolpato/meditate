@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   version="1.1"
+   style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;"
+   viewBox="0 0 100 125"
+   x="0px"
+   y="0px"
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   id="svg14"
+   sodipodi:docname="info.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"><metadata
+     id="metadata18"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1864"
+     inkscape:window-height="1016"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="1.888"
+     inkscape:cx="50"
+     inkscape:cy="62.5"
+     inkscape:window-x="56"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" /><defs
+     id="defs4"><style
+       type="text/css"
+       id="style2">
+   
+    .fil0 {fill:black}
+   
+  </style></defs><g
+     id="g8"><path
+       class="fil0"
+       d="M 50,1.99 C 76.52,1.99 98.01,23.48 98.01,50 98.01,76.52 76.52,98.01 50,98.01 23.48,98.01 1.99,76.52 1.99,50 1.99,23.48 23.48,1.99 50,1.99 Z m 6.01,43.47 v 28.57 c 0,7.95 -12.02,7.95 -12.02,0 V 45.46 c 0,-7.94 12.02,-7.94 12.02,0 z M 50,20.01 c 3.71,0 6.72,3.01 6.72,6.72 0,3.71 -3.01,6.71 -6.72,6.71 -3.71,0 -6.72,-3 -6.72,-6.71 0,-3.71 3.01,-6.72 6.72,-6.72 z"
+       id="path6"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" /></g></svg>
