@@ -14,11 +14,11 @@
             preload="auto"
           >
             <source
-              :src="`${publicPath}bell-${id}.wav`"
+              :src="`${publicPath}/bell-${id}.wav`"
               type="audio/wav"
             />
             <source
-              :src="`${publicPath}bell-${id}.mp3`"
+              :src="`${publicPath}/bell-${id}.mp3`"
               type="audio/mp3"
             />
             Your browser does not support the audio element.
@@ -45,6 +45,7 @@ export default defineComponent({
     return {
       bellAudio: null,
       soundsLoaded: 0,
+      publicPath: import.meta.env.BASE_URL,
     }
   },
   computed: {
