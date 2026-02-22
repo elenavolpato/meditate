@@ -1,14 +1,27 @@
 <template>
   <div class="z-10 text-center">
-    <audio id="meditationSound" preload="auto" ref="audioPlayer">
-      <source :src="`/bell-${selectedBell}.wav`" type="audio/wav" />
-      <source :src="`/bell-${selectedBell}.mp3`" type="audio/mp3" />
+    <audio
+      id="meditationSound"
+      preload="auto"
+      ref="audioPlayer"
+    >
+      <source
+        :src="`${publicPath}bell-${selectedBell}.wav`"
+        type="audio/wav"
+      />
+      <source
+        :src="`${publicPath}bell-${selectedBell}.mp3`"
+        type="audio/mp3"
+      />
       Your browser does not support the audio element.
     </audio>
     <div class="relative content-center text-7xl text-white font-bold mb-36">
       <div v-if="elapsed === undefined">{{ convertMinutes(totalTime) }}</div>
       <div v-else-if="!finished">{{ prettyTime }}</div>
-      <div v-else class="text-3xl animate-fade-in">
+      <div
+        v-else
+        class="text-3xl animate-fade-in"
+      >
         <div>
           <p class="mb-2 animate-fade-in">Congratulations!</p>
           <p>
@@ -19,17 +32,38 @@
       </div>
     </div>
     <div class="absolute bottom-10 inset-x-0">
-      <div class="relative bottom-64 sm:bottom-20 sm:mb-5" v-show="!finished">
+      <div
+        class="relative bottom-64 sm:bottom-20 sm:mb-5"
+        v-show="!finished"
+      >
         <transition
           enter-active-class="animate-fade-in"
           leave-active-class="animate-fade-out"
           mode="out-in"
         >
-          <button key="pause" preload="auto" v-if="isPlayed" @click="pause">
-            <img src="/noun_Stop_559095.svg" alt="pause" class="w-14" />
+          <button
+            key="pause"
+            preload="auto"
+            v-if="isPlayed"
+            @click="pause"
+          >
+            <img
+              src="${publicPath}noun_Stop_559095.svg"
+              alt="pause"
+              class="w-14"
+            />
           </button>
-          <button key="play" preload="auto" v-else @click="play">
-            <img src="/noun_play_559093.svg" alt="play" class="w-14" />
+          <button
+            key="play"
+            preload="auto"
+            v-else
+            @click="play"
+          >
+            <img
+              src="${publicPath}noun_play_559093.svg"
+              alt="play"
+              class="w-14"
+            />
           </button>
         </transition>
       </div>
@@ -44,11 +78,11 @@
 </template>
 
 <script>
-const numEndBells = 3;
-const intervalEndBells = 3500;
+const numEndBells = 3
+const intervalEndBells = 3500
 
-import { defineComponent } from "vue";
-import NoSleep from "nosleep.js";
+import { defineComponent } from "vue"
+import NoSleep from "nosleep.js"
 
 export default defineComponent({
   name: "meditate",
@@ -73,7 +107,8 @@ export default defineComponent({
       countdownId: undefined,
       //screen wake lock
       noSleep: new NoSleep(),
-    };
+      publicPath: import.meta.env.BASE_URL,
+    }
   },
   mounted() {
     if (
@@ -81,117 +116,113 @@ export default defineComponent({
       this.totalTime === undefined ||
       this.selectedlInterval === undefined
     ) {
-      this.totalTime = 5 * 60000;
-      this.selectedBell = 1;
+      this.totalTime = 5 * 60000
+      this.selectedBell = 1
     }
-    this.intervalTime = this.totalTime / this.selectedlInterval;
-    this.sound = document.getElementById("meditationSound");
-    document.addEventListener("keydown", this.spaceBar);
+    this.intervalTime = this.totalTime / this.selectedlInterval
+    this.sound = document.getElementById("meditationSound")
+    document.addEventListener("keydown", this.spaceBar)
   },
 
   computed: {
     prettyTime() {
-      return this.convertMinutes((this.totalTime - this.elapsed).toFixed(0));
+      return this.convertMinutes((this.totalTime - this.elapsed).toFixed(0))
     },
   },
 
   methods: {
     //convert milliseconds do minutes and seconds
     convertMinutes(milliseconds) {
-      let minutes = Math.floor(milliseconds / 60000);
-      let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
+      let minutes = Math.floor(milliseconds / 60000)
+      let seconds = ((milliseconds % 60000) / 1000).toFixed(0)
       if (seconds === "60") {
-        minutes += 1;
-        seconds = "00";
+        minutes += 1
+        seconds = "00"
       }
-      minutes = String(minutes).padStart(2, 0);
-      seconds = seconds.padStart(2, 0);
-      return `${minutes}:${seconds}`;
+      minutes = String(minutes).padStart(2, 0)
+      seconds = seconds.padStart(2, 0)
+      return `${minutes}:${seconds}`
     },
 
     //basic play and pause functions (for timer and sound)
     play() {
       if (this.elapsed === undefined) {
-        this.sound.play();
+        this.sound.play()
       }
-      this.noSleep.enable();
-      this.countdownId = window.requestAnimationFrame(this.countdown);
-      this.isPlayed = true;
+      this.noSleep.enable()
+      this.countdownId = window.requestAnimationFrame(this.countdown)
+      this.isPlayed = true
     },
     pause() {
-      this.sound.pause();
-      this.isPlayed = false;
+      this.sound.pause()
+      this.isPlayed = false
     },
     spaceBar(e) {
       if (e.key === " " && this.isPlayed) {
-        return this.pause();
+        return this.pause()
       } else if (e.key === " " && !this.isPlayed) {
-        return this.play();
+        return this.play()
       }
-      console.log(e);
+      console.log(e)
     },
 
     //timer setup
     countdown(timestamp) {
       if (this.isPlayed) {
         if (this.startTime === -1) {
-          this.startTime = timestamp;
+          this.startTime = timestamp
         }
-        this.elapsed = timestamp - this.startTime + this.totalElapsed;
+        this.elapsed = timestamp - this.startTime + this.totalElapsed
         if (this.elapsed <= this.totalTime) {
           if (this.elapsed >= this.intervalTime * this.currentInterval) {
-            this.playIntervalBell();
-            this.currentInterval++;
+            this.playIntervalBell()
+            this.currentInterval++
           }
-          this.countdownId = window.requestAnimationFrame(this.countdown);
+          this.countdownId = window.requestAnimationFrame(this.countdown)
         } else {
-          this.startTime = -1;
-          this.finished = true;
-          this.countdownId = window.requestAnimationFrame(this.endMeditation);
+          this.startTime = -1
+          this.finished = true
+          this.countdownId = window.requestAnimationFrame(this.endMeditation)
         }
       } else if (this.startTime !== -1) {
-        this.totalElapsed = this.elapsed;
-        this.startTime = -1;
+        this.totalElapsed = this.elapsed
+        this.startTime = -1
       }
     },
     //plays bells in between
     playIntervalBell() {
-      this.sound.currentTime = 0;
-      this.sound.play();
+      this.sound.currentTime = 0
+      this.sound.play()
     },
     //bell plays 2 times at the end
     endMeditation(timestamp) {
       if (this.startTime == -1) {
-        this.startTime = timestamp;
-        this.sound.currentTime = 0.4;
-        this.sound.play();
+        this.startTime = timestamp
+        this.sound.currentTime = 0.4
+        this.sound.play()
       }
-      this.elapsed = timestamp - this.startTime;
+      this.elapsed = timestamp - this.startTime
 
       if (this.elapsed <= numEndBells * intervalEndBells + 1) {
         if (this.elapsed >= this.secs) {
-          this.sound.currentTime = 0;
-          this.sound.play();
-          this.secs = this.secs + intervalEndBells;
+          this.sound.currentTime = 0
+          this.sound.play()
+          this.secs = this.secs + intervalEndBells
         }
-        this.countdownId = window.requestAnimationFrame(this.endMeditation);
+        this.countdownId = window.requestAnimationFrame(this.endMeditation)
       }
-      this.noSleep.disable();
+      this.noSleep.disable()
     },
     backHome() {
-      window.cancelAnimationFrame(this.countdownId);
-      this.noSleep.disable();
+      window.cancelAnimationFrame(this.countdownId)
+      this.noSleep.disable()
       this.$router.push({
         name: "Home",
         params: {},
-      });
+      })
     },
   },
-});
+})
 </script>
 
-
-
-<style scoped>
-</style>
-
+<style scoped></style>

@@ -9,9 +9,18 @@
         :key="id"
       >
         <div class="select-none">
-          <audio :id="`bell-${id}`" preload="auto">
-            <source :src="`/bell-${id}.wav`" type="audio/wav" />
-            <source :src="`/bell-${id}.mp3`" type="audio/mp3" />
+          <audio
+            :id="`bell-${id}`"
+            preload="auto"
+          >
+            <source
+              :src="`${publicPath}bell-${id}.wav`"
+              type="audio/wav"
+            />
+            <source
+              :src="`${publicPath}bell-${id}.mp3`"
+              type="audio/mp3"
+            />
             Your browser does not support the audio element.
           </audio>
           <div @click="playBell(id)">
@@ -24,65 +33,64 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
 export default defineComponent({
   props: {
     msg: String,
     bells: Array,
   },
-  emits: ['allLoaded'],
+  emits: ["allLoaded"],
   data() {
     return {
       bellAudio: null,
       soundsLoaded: 0,
-    };
+    }
   },
   computed: {
     selectedBell: {
       get() {
-        return this.$store.state.selectedBell;
+        return this.$store.state.selectedBell
       },
       set(selectedBell) {
-        this.$store.commit("setBell", selectedBell);
+        this.$store.commit("setBell", selectedBell)
       },
     },
   },
   methods: {
     playBell(clickedBellNumber) {
       if (this.bellAudio !== null) {
-        this.bellAudio.pause();
-        this.bellAudio.currentTime = 0;
+        this.bellAudio.pause()
+        this.bellAudio.currentTime = 0
       }
-      this.bellAudio = document.getElementById(`bell-${clickedBellNumber}`);
-      this.bellAudio.play();
-      this.selectedBell = clickedBellNumber;
+      this.bellAudio = document.getElementById(`bell-${clickedBellNumber}`)
+      this.bellAudio.play()
+      this.selectedBell = clickedBellNumber
     },
     selectedButton(x) {
-      x = this.bellAudio;
+      x = this.bellAudio
       if (x !== null) {
-        return x;
+        return x
       }
     },
     checkLoad() {
       for (let bellNumber in [0, 1, 2]) {
-        const audio = document.getElementById(`bell-${bellNumber}`);
+        const audio = document.getElementById(`bell-${bellNumber}`)
         audio.addEventListener("loadeddata", () => {
           if (audio.readyState >= 2) {
-            this.soundsLoaded++;
+            this.soundsLoaded++
             if (this.soundsLoaded === 3) {
-              this.$emit("allLoaded");
+              this.$emit("allLoaded")
             }
           }
-        });
+        })
       }
     },
   },
   mounted() {
-    this.checkLoad();
+    this.checkLoad()
   },
-});
-</script> 
+})
+</script>
 
-<style>
-</style>
+<style></style>
